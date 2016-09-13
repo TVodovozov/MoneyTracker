@@ -15,5 +15,5 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="50dp"
         android:text="@string/hallo_world"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
 </RelativeLayout>
