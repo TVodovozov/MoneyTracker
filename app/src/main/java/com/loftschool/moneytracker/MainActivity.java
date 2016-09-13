@@ -37,4 +37,16 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.d(LOG_TAG, "onStop()");
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(LOG_TAG, "onRestart()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LOG_TAG, "onDestroy()");
+    }
 }
