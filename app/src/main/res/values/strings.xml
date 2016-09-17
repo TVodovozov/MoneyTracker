@@ -13,4 +13,6 @@
 
     <string name="nav_header_mail">vodovozzz@inbox.ru</string>
     <string name="nav_header_user_name">Timur Vodovozov</string>
+
+    <string name="expenses_fragment">Hello Fragments</string>
 </resources>
