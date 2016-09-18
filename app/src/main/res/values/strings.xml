@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">MoneyTracker</string>
-    <string name="hallo_world">Hello World!</string>
-    <string name="hallo_android">Hello Android</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_buy">Расходы</string>
+    <string name="menu_category">Категории</string>
+    <string name="menu_statistics">Статистика</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_quit">Выход</string>
+
+    <string name="nav_header_mail">vodovozzz@inbox.ru</string>
+    <string name="nav_header_user_name">Timur Vodovozov</string>
 </resources>
