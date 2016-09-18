@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.ui.fragments.CategoriesFragment;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment;
+import com.loftschool.moneytracker.ui.fragments.StatisticFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -141,7 +142,9 @@ public class MainActivity extends AppCompatActivity
                 return true;
 
             case R.id.menu_statistics:
+                replaceFragment (new StatisticFragment());
                 Toast.makeText(this, "Статистика", Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.START);
                 return true;
 
             case R.id.menu_settings:
