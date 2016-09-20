@@ -19,13 +19,14 @@
             android:icon="@drawable/ic_settings"
             android:title="@string/menu_settings" />
     </group>
-
+<group>
     <item
         android:id="@+id/menu_quit"
         android:icon="@drawable/ic_exit"
         android:title="@string/menu_quit"
         android:paddingTop="106dp"
         />
+</group>
 
 
 </menu>

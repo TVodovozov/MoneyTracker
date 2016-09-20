@@ -2726,7 +2726,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0c005b;
         public static final int action_mode_bar_stub=0x7f0c005a;
         public static final int action_mode_close_button=0x7f0c003f;
-        public static final int action_settings=0x7f0c00a1;
+        public static final int action_settings=0x7f0c00a6;
         public static final int activity_chooser_view_content=0x7f0c0040;
         public static final int add=0x7f0c001a;
         public static final int alertTitle=0x7f0c004c;
@@ -2795,14 +2795,15 @@ containing a value of this type.
         public static final int list_item=0x7f0c0044;
         public static final int list_of_categories=0x7f0c0074;
         public static final int list_of_expanses=0x7f0c0087;
-        public static final int list_of_statistic=0x7f0c0098;
+        public static final int list_of_settings=0x7f0c0098;
+        public static final int list_of_statistic=0x7f0c009d;
         public static final int main_container=0x7f0c0071;
         public static final int media_actions=0x7f0c008d;
-        public static final int menu_buy=0x7f0c009c;
-        public static final int menu_category=0x7f0c009d;
-        public static final int menu_quit=0x7f0c00a0;
-        public static final int menu_settings=0x7f0c009f;
-        public static final int menu_statistics=0x7f0c009e;
+        public static final int menu_buy=0x7f0c00a1;
+        public static final int menu_category=0x7f0c00a2;
+        public static final int menu_quit=0x7f0c00a5;
+        public static final int menu_settings=0x7f0c00a4;
+        public static final int menu_statistics=0x7f0c00a3;
         public static final int middle=0x7f0c0035;
         public static final int mini=0x7f0c0033;
         public static final int multiply=0x7f0c001b;
@@ -2835,6 +2836,10 @@ containing a value of this type.
         public static final int search_src_text=0x7f0c0067;
         public static final int search_voice_btn=0x7f0c006b;
         public static final int select_dialog_listview=0x7f0c006c;
+        public static final int settings_card_root=0x7f0c0099;
+        public static final int settings_fragment_root_layout=0x7f0c0097;
+        public static final int settings_item_layout=0x7f0c009a;
+        public static final int settings_item_settings_name=0x7f0c009b;
         public static final int shortcut=0x7f0c0056;
         public static final int showCustom=0x7f0c0011;
         public static final int showHome=0x7f0c0012;
@@ -2848,10 +2853,10 @@ containing a value of this type.
         public static final int src_in=0x7f0c001e;
         public static final int src_over=0x7f0c001f;
         public static final int start=0x7f0c002a;
-        public static final int statistic_card_root=0x7f0c0099;
-        public static final int statistic_fragment_root_layout=0x7f0c0097;
-        public static final int statistic_item_layout=0x7f0c009a;
-        public static final int statistic_item_statistic_name=0x7f0c009b;
+        public static final int statistic_card_root=0x7f0c009e;
+        public static final int statistic_fragment_root_layout=0x7f0c009c;
+        public static final int statistic_item_layout=0x7f0c009f;
+        public static final int statistic_item_statistic_name=0x7f0c00a0;
         public static final int status_bar_latest_event_content=0x7f0c008c;
         public static final int submenuarrow=0x7f0c0058;
         public static final int submit_area=0x7f0c0069;
@@ -2940,9 +2945,11 @@ containing a value of this type.
         public static final int select_dialog_item_material=0x7f040035;
         public static final int select_dialog_multichoice_material=0x7f040036;
         public static final int select_dialog_singlechoice_material=0x7f040037;
-        public static final int statistic_fragment=0x7f040038;
-        public static final int statistic_item=0x7f040039;
-        public static final int support_simple_spinner_dropdown_item=0x7f04003a;
+        public static final int settings_fragment=0x7f040038;
+        public static final int settings_item=0x7f040039;
+        public static final int statistic_fragment=0x7f04003a;
+        public static final int statistic_item=0x7f04003b;
+        public static final int support_simple_spinner_dropdown_item=0x7f04003c;
     }
     public static final class menu {
         public static final int activity_main_drawer=0x7f0d0000;
