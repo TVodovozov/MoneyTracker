@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity
                 Fragment f = getSupportFragmentManager().findFragmentById(R.id.main_container);
                 if (f != null) {
                     updateToolbarTitle(f);
+                    Log.d(LOG_TAG, "getSupportFragmentManager. Вызываю updateToolbarTitle");
                 }
             }
         });
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity
             setTitle(getString(R.string.menu_buy));
             navigationView.setCheckedItem(R.id.menu_buy);
         }
+
         else if (fragmentClassName.equals(CategoriesFragment.class.getName())){
             setTitle(getString(R.string.menu_category));
             navigationView.setCheckedItem(R.id.menu_category);
