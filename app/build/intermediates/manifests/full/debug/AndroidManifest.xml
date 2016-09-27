@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.loftschool.moneytracker.ui.MainActivity"
+            android:name="com.loftschool.moneytracker.ui.MainActivity_"
             android:label="MoneyTracker"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name="com.loftschool.moneytracker.ui.AddExpenseActivity_"
-            android:parentActivityName="com.loftschool.moneytracker.ui.MainActivity" />
+            android:parentActivityName="com.loftschool.moneytracker.ui.MainActivity_" />
         <activity android:name="com.loftschool.moneytracker.ui.SplashScreenActivity_" />
     </application>
 

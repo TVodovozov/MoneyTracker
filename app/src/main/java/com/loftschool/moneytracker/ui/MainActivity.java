@@ -1,19 +1,18 @@
 package com.loftschool.moneytracker.ui;
 
-import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.ui.fragments.CategoriesFragment;
@@ -21,55 +20,68 @@ import com.loftschool.moneytracker.ui.fragments.ExpensesFragment;
 import com.loftschool.moneytracker.ui.fragments.SettingsFragment;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.InstanceState;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringRes;
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
-    private ActionBarDrawerToggle toggle;
-    public Toolbar toolbar;
-    public DrawerLayout drawer;
-    public NavigationView navigationView;
+@EActivity(R.layout.activity_main)
+public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
 
+    private static final String LOG_TAG = MainActivity_.class.getSimpleName();
+    private FragmentManager fragmentManager;
+    @ViewById(R.id.toolbar_layout)
+    Toolbar toolbar;
+    @ViewById(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @ViewById(R.id.navigation_view)
+    NavigationView navigationView;
+    @StringRes(R.string.menu_buy)
+    String expensesTitle;
+    @StringRes(R.string.menu_category)
+    String categoriesTitle;
+    @StringRes(R.string.menu_statistics)
+    String statisticsTitle;
+    @StringRes(R.string.menu_settings)
+    String settingsTitle;
+    @InstanceState
+    String toolbarTitle;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar_layout);
-        setSupportActionBar(toolbar);
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        if (savedInstanceState == null) {
-            replaceFragment(new ExpensesFragment());
-        }
-
-        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                Fragment f = getSupportFragmentManager().findFragmentById(R.id.main_container);
-                if (f != null) {
-                    updateToolbarTitle(f);
-                    Log.d(LOG_TAG, "getSupportFragmentManager. Вызываю updateToolbarTitle");
-                }
-            }
-        });
+    @AfterViews
+    void setupViews() {
+        setActionBar();
+        setDrawerLayout();
+        setFragmentManager();
     }
 
-    @Override
+    private void setDrawerLayout() {
+        onNavigationItemSelected();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,
+                drawer,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+        toggle.syncState();
+        drawer.addDrawerListener(toggle);
+        if (toolbarTitle != null)
+            setTitle(toolbarTitle);
+    }
+
+    private void setActionBar() {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (fragmentManager.getBackStackEntryCount() == 1) {
+            finish();
         } else {
             super.onBackPressed();
         }
@@ -88,80 +100,90 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        if (drawer != null) {
-            drawer.closeDrawer(GravityCompat.START);
+    public void onBackStackChanged() {
+        Fragment f = fragmentManager.findFragmentById(R.id.main_container);
+        if (f != null) {
+            setToolbarTitle(f.getClass().getName());
         }
-        switch (item.getItemId()) {
+    }
 
-            case R.id.menu_buy:
-                ExpensesFragment ef = new ExpensesFragment();
-                replaceFragment(ef);
-                Toast.makeText(this, "Расходы", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_category:
-                CategoriesFragment cf = new CategoriesFragment();
-                replaceFragment(cf);
-                Toast.makeText(this, "Категории", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_statistics:
-                StatisticFragment statf = new StatisticFragment();
-                replaceFragment(statf);
-                Toast.makeText(this, "Статистика", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_settings:
-                SettingsFragment setf = new SettingsFragment();
-                replaceFragment(setf);
-                Toast.makeText(this, "Настройка", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_quit:
-                Toast.makeText(this, "Выход", Toast.LENGTH_SHORT).show();
-                break;
-        }
+    private boolean onNavigationItemSelected() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                if (drawer != null) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+                int itemId = item.getItemId();
+                switch (itemId) {
+                    case R.id.menu_buy:
+                        replaceFragment(new ExpensesFragment());
+                        break;
+                    case R.id.menu_category:
+                        replaceFragment(new CategoriesFragment());
+                        break;
+                    case R.id.menu_statistics:
+                        replaceFragment(new StatisticFragment());
+                        break;
+                    case R.id.menu_settings:
+                        replaceFragment(new SettingsFragment());
+                        break;
+                    case R.id.menu_quit:
+                        break;
+                }
+                return true;
+            }
+            });
         return true;
     }
+
 
 
     private void replaceFragment(Fragment fragment) {
         String backStackName = fragment.getClass().getName();
 
-        FragmentManager manager = getSupportFragmentManager();
-        boolean fragmentPopped = manager.popBackStackImmediate(backStackName, 0);
+        boolean isFragmentPopped = fragmentManager.popBackStackImmediate(backStackName, 0);
 
-        if (!fragmentPopped && manager.findFragmentByTag(backStackName) == null) {
-            FragmentTransaction ft = manager.beginTransaction();
-            ft.replace(R.id.main_container, fragment, backStackName);
-            ft.addToBackStack(backStackName);
-            ft.commit();
+        if (!isFragmentPopped && fragmentManager.findFragmentByTag(backStackName) == null) {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.main_container, fragment, backStackName);
+            transaction.addToBackStack(backStackName);
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.commit();
 
         }
     }
+        private void setFragmentManager() {
+                fragmentManager = getSupportFragmentManager();
+                fragmentManager.addOnBackStackChangedListener(this);
+            }
 
-    private void updateToolbarTitle(Fragment fragment) {
-        String fragmentClassName = fragment.getClass().getName();
-
-        if (fragmentClassName.equals(ExpensesFragment.class.getName())) {
-            setTitle(getString(R.string.menu_buy));
+    private void setToolbarTitle(String backStackEntryName) {
+        if (backStackEntryName.equals(ExpensesFragment.class.getName())) {
+            setTitle(expensesTitle);
+            toolbarTitle = expensesTitle;
             navigationView.setCheckedItem(R.id.menu_buy);
-        } else if (fragmentClassName.equals(CategoriesFragment.class.getName())) {
-            setTitle(getString(R.string.menu_category));
+        } else if (
+                backStackEntryName.equals(CategoriesFragment.class.getName())) {
+            setTitle(categoriesTitle);
+            toolbarTitle = categoriesTitle;
             navigationView.setCheckedItem(R.id.menu_category);
-        } else if (fragmentClassName.equals(StatisticFragment.class.getName())) {
-            setTitle(getString(R.string.menu_statistics));
-            navigationView.setCheckedItem(R.id.menu_statistics);
-        } else if (fragmentClassName.equals(SettingsFragment.class.getName())) {
-            setTitle(getString(R.string.menu_settings));
+        } else if (
+                backStackEntryName.equals(SettingsFragment.class.getName())) {
+            setTitle(settingsTitle);
+            toolbarTitle = settingsTitle;
+            navigationView.setCheckedItem(R.id.menu_settings);
+        } else {
+            setTitle(statisticsTitle);
+            toolbarTitle = statisticsTitle;
             navigationView.setCheckedItem(R.id.menu_settings);
         }
 
     }
+
 }
 
 

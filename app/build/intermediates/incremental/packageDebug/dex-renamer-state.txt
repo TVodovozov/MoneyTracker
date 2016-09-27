@@ -1,4 +1,4 @@
-#Tue Sep 27 21:37:47 MSK 2016
+#Wed Sep 28 00:09:26 MSK 2016
 base.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a2bf1d121d8df4e51d82334a842349601468b8c7
 renamed.1=classes.dex
 renamed.0=classes2.dex
