@@ -1,10 +1,10 @@
 package com.loftschool.moneytracker.ui.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,12 +14,13 @@ import android.view.ViewGroup;
 
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.models.ExpensesModel;
+import com.loftschool.moneytracker.ui.AddExpenseActivity_;
 import com.loftschool.moneytracker.ui.adapter.ExpensesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpensesFragment extends Fragment{
+public class ExpensesFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ExpensesAdapter expensesAdapter;
@@ -39,20 +40,23 @@ public class ExpensesFragment extends Fragment{
 
 
         fab = (FloatingActionButton) rootView.findViewById(R.id.expenses_fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick (View view){
-                Snackbar.make(view, "Это снекбар внутри ExpensesFragment" , Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         return rootView;
 
     }
 
-    private List<ExpensesModel> getExpenses(){
+    @Override
+    public void onStart() {
+        super.onStart();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AddExpenseActivity_.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private List<ExpensesModel> getExpenses() {
         List<ExpensesModel> expenses = new ArrayList<>();
         expenses.add(new ExpensesModel("Books", "123"));
         expenses.add(new ExpensesModel("Cafe", "100"));
@@ -73,7 +77,5 @@ public class ExpensesFragment extends Fragment{
         expenses.add(new ExpensesModel("Food", "123"));
         expenses.add(new ExpensesModel("Mall", "123"));
         return expenses;
-
-
     }
 }

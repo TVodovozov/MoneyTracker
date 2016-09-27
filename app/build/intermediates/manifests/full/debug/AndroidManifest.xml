@@ -24,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.loftschool.moneytracker.ui.AddExpenseActivity_"
+            android:parentActivityName="com.loftschool.moneytracker.ui.MainActivity" />
+        <activity android:name="com.loftschool.moneytracker.ui.SplashScreenActivity_" />
     </application>
 
 </manifest>

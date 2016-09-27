@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\in_fab.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\mipmap-mdpi\\in_fab.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

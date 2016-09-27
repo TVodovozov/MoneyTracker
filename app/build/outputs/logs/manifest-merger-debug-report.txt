@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:2:1-23:
 		INJECTED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml
 		INJECTED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:5:5-25:19
 MERGED from [com.android.support:design:24.2.1] D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:24.2.1] D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.1] D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:25:5-20
@@ -54,6 +54,16 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
 		ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:18:27-74
+activity#com.loftschool.moneytracker.ui.AddExpenseActivity_
+ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:21:9-22:60
+	android:parentActivityName
+		ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:22:13-58
+	android:name
+		ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:21:19-57
+activity#com.loftschool.moneytracker.ui.SplashScreenActivity_
+ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:23:9-61
+	android:name
+		ADDED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml:23:19-59
 uses-sdk
 INJECTED from D:\TestProjects\MoneyTracker\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:24.2.1] D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:20:5-43
