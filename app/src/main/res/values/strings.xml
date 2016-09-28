@@ -15,4 +15,25 @@
     <string name="nav_header_user_name">Timur Vodovozov</string>
 
     <string name="expenses_fragment">Hello Fragments</string>
+
+    <string name="add_expenses_activity">Hello!</string>
+
+    <string name="expenses_button_cancel">Отмена</string>
+    <string name="expenses_button_add">Добавить</string>
+
+    <string name="expenses_editText_description">Наименование покупки</string>
+    <string name="expenses_editText_prise">Введите стоимость</string>
+    <string name="expenses_editText_date">Введите дату</string>
+    <string name="expenses_toast_add">Покупка добавлена</string>
+    <string name="expenses_select_categories">Выберите категорию</string>
+    <string name="expenses_warning">Заполните все поля</string>
+
+    <string-array name="categories">
+        <item>Выберите категорию</item>
+        <item>Развлечения</item>
+        <item>Продукты</item>
+        <item>Кафе</item>
+        <item>Образование</item>
+        <item>Лекарства</item>
+    </string-array>
 </resources>

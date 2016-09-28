@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_category.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_category.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_statistics.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_statistics.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_cart.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_cart.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_exit.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_exit.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_settings.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_settings.png"
+    }
+]
