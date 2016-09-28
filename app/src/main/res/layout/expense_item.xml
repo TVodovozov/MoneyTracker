@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/expenses_card_root"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/expanse_item_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/expanse_item_expense_name"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/expanse_item_expense_price"
+            android:layout_toEndOf="@+id/expanse_item_expense_name"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
