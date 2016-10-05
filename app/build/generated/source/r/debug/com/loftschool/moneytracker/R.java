@@ -2836,6 +2836,7 @@ containing a value of this type.
         public static final int scrollIndicatorUp=0x7f0d004e;
         public static final int scrollView=0x7f0d004f;
         public static final int scrollable=0x7f0d003c;
+        public static final int search_action=0x7f0d00b0;
         public static final int search_badge=0x7f0d0062;
         public static final int search_bar=0x7f0d0061;
         public static final int search_button=0x7f0d0063;
@@ -2969,6 +2970,7 @@ containing a value of this type.
     public static final class menu {
         public static final int activity_main_drawer=0x7f0e0000;
         public static final int main=0x7f0e0001;
+        public static final int menu_search=0x7f0e0002;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -3033,6 +3035,7 @@ containing a value of this type.
         public static final int navigation_drawer_close=0x7f060038;
         public static final int navigation_drawer_open=0x7f060039;
         public static final int search_menu_title=0x7f060013;
+        public static final int search_title=0x7f06003a;
         public static final int status_bar_notification_info_overflow=0x7f060014;
     }
     public static final class style {

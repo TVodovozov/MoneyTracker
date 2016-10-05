@@ -57,7 +57,9 @@ public class ExpensesEntity extends Model {
         this.category = category;
     }
 
-    public static List<ExpensesEntity> selectAll() {
-        return new Select().from(ExpensesEntity.class).execute();
+    public static List<ExpensesEntity> selectAll(String query) {
+        return new Select().from(ExpensesEntity.class)
+                .where("name LIKE?", new String[] {'%' + query + '%'})
+                .execute();
     }
 }
