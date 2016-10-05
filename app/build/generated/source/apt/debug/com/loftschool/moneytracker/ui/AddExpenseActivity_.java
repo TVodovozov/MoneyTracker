@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -77,12 +78,12 @@ public final class AddExpenseActivity_
     public void onViewChanged(HasViews hasViews) {
         this.prise = ((EditText) hasViews.findViewById(R.id.expense_prise));
         this.desc = ((EditText) hasViews.findViewById(R.id.expense_desc));
-        this.cat = ((Spinner) hasViews.findViewById(R.id.expense_cat));
         this.date = ((EditText) hasViews.findViewById(R.id.expenses_date));
-        this.cancel = ((Button) hasViews.findViewById(R.id.expenses_btn_cancel));
-        this.add = ((Button) hasViews.findViewById(R.id.expenses_btn_add));
-        if (this.cancel!= null) {
-            this.cancel.setOnClickListener(new OnClickListener() {
+        this.spinnerCategories = ((Spinner) hasViews.findViewById(R.id.expense_cat));
+        this.btnCancel = ((Button) hasViews.findViewById(R.id.expenses_btn_cancel));
+        this.btnApply = ((Button) hasViews.findViewById(R.id.expenses_btn_add));
+        if (this.btnCancel!= null) {
+            this.btnCancel.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
@@ -91,18 +92,27 @@ public final class AddExpenseActivity_
             }
             );
         }
-        if (this.add!= null) {
-            this.add.setOnClickListener(new OnClickListener() {
+        if (this.btnApply!= null) {
+            this.btnApply.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
-                    AddExpenseActivity_.this.btnApplyIsClicked();
+                    AddExpenseActivity_.this.btnAddIsClicked();
                 }
             }
             );
         }
-        catClicked();
-        toDayDate();
+        load();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId_ = item.getItemId();
+        if (itemId_ == R.id.home) {
+            back();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public static class IntentBuilder_

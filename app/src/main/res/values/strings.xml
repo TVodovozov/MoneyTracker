@@ -28,6 +28,8 @@
     <string name="expenses_select_categories">Выберите категорию</string>
     <string name="expenses_warning">Заполните все поля</string>
 
+    <string name="category_snackbar_massage">Это snackbar</string>
+
     <string-array name="categories">
         <item>Выберите категорию</item>
         <item>Развлечения</item>

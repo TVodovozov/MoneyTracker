@@ -583,6 +583,7 @@
     <string name="app_name">MoneyTracker</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="category_snackbar_massage">Это snackbar</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="expenses_button_add">Добавить</string>
     <string name="expenses_button_cancel">Отмена</string>

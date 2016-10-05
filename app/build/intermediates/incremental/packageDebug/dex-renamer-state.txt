@@ -1,7 +1,4 @@
-#Wed Sep 28 00:09:26 MSK 2016
-base.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a2bf1d121d8df4e51d82334a842349601468b8c7
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_1f0b7962c4d4e6e0f45280ff6355e7a5fb0611f6\\classes.dex
-base.1=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_1f0b7962c4d4e6e0f45280ff6355e7a5fb0611f6
-file.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a2bf1d121d8df4e51d82334a842349601468b8c7\\classes.dex
+#Wed Oct 05 14:53:00 MSK 2016
+base.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.loftschool.moneytracker.R;
-import com.loftschool.moneytracker.models.CategoriesModel;
+import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 
 import java.util.List;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>{
 
-    private List<CategoriesModel> categoriesList;
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder> {
 
-    public CategoriesAdapter(List<CategoriesModel> categoriesList){
-        this.categoriesList = categoriesList;
+    private List<CategoryEntity> categories;
 
+    public CategoriesAdapter(List<CategoryEntity> categories) {
+        this.categories = categories;
     }
 
     @Override
@@ -30,25 +30,22 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
     @Override
     public void onBindViewHolder(CategoriesHolder holder, int position) {
-        CategoriesModel category = categoriesList.get(position);
+        CategoryEntity category = categories.get(position);
         holder.name.setText(category.getName());
-
     }
 
     @Override
     public int getItemCount() {
-        return categoriesList.size();
+        return categories.size();
     }
 
-    class CategoriesHolder extends RecyclerView.ViewHolder{
+    class CategoriesHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
+        public TextView name;
 
         public CategoriesHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.categories_item_categories_name);
-
-
         }
     }
 }

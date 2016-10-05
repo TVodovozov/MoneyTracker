@@ -10,15 +10,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.loftschool.moneytracker.R;
-import com.loftschool.moneytracker.ui.fragments.CategoriesFragment;
-import com.loftschool.moneytracker.ui.fragments.ExpensesFragment;
-import com.loftschool.moneytracker.ui.fragments.SettingsFragment;
-import com.loftschool.moneytracker.ui.fragments.StatisticFragment;
+import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
+import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
+import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
+import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -120,16 +119,16 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 int itemId = item.getItemId();
                 switch (itemId) {
                     case R.id.menu_buy:
-                        replaceFragment(new ExpensesFragment());
+                        replaceFragment(new ExpensesFragment_());
                         break;
                     case R.id.menu_category:
-                        replaceFragment(new CategoriesFragment());
+                        replaceFragment(new CategoriesFragment_());
                         break;
                     case R.id.menu_statistics:
-                        replaceFragment(new StatisticFragment());
+                        replaceFragment(new StatisticFragment_());
                         break;
                     case R.id.menu_settings:
-                        replaceFragment(new SettingsFragment());
+                        replaceFragment(new SettingsFragment_());
                         break;
                     case R.id.menu_quit:
                         break;
@@ -156,23 +155,23 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         }
     }
-        private void setFragmentManager() {
-                fragmentManager = getSupportFragmentManager();
-                fragmentManager.addOnBackStackChangedListener(this);
+    private void setFragmentManager() {
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager.addOnBackStackChangedListener(this);
             }
 
     private void setToolbarTitle(String backStackEntryName) {
-        if (backStackEntryName.equals(ExpensesFragment.class.getName())) {
+        if (backStackEntryName.equals(ExpensesFragment_.class.getName())) {
             setTitle(expensesTitle);
             toolbarTitle = expensesTitle;
             navigationView.setCheckedItem(R.id.menu_buy);
         } else if (
-                backStackEntryName.equals(CategoriesFragment.class.getName())) {
+                backStackEntryName.equals(CategoriesFragment_.class.getName())) {
             setTitle(categoriesTitle);
             toolbarTitle = categoriesTitle;
             navigationView.setCheckedItem(R.id.menu_category);
         } else if (
-                backStackEntryName.equals(SettingsFragment.class.getName())) {
+                backStackEntryName.equals(SettingsFragment_.class.getName())) {
             setTitle(settingsTitle);
             toolbarTitle = settingsTitle;
             navigationView.setCheckedItem(R.id.menu_settings);
