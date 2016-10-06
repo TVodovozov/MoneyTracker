@@ -11,3 +11,7 @@
 00:43:08.556 [Daemon worker Thread 15] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsItemHandler
 00:46:59.568 [Daemon worker Thread 17] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
 00:46:59.569 [Daemon worker Thread 17] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler
+15:36:58.859 [Daemon worker Thread 4] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
+15:36:58.862 [Daemon worker Thread 4] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler
+15:37:31.350 [Daemon worker Thread 4] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
+15:37:31.352 [Daemon worker Thread 4] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler

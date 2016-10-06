@@ -16,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -28,7 +29,6 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.OptionsMenuItem;
 import org.androidannotations.annotations.ViewById;
@@ -44,13 +44,14 @@ public class ExpensesFragment extends Fragment {
     final String SEARCH_QUERY_ID = "search_query_id";
     SearchView searchView;
 
-
     @ViewById(R.id.expanse_fragment_root_layout)
     CoordinatorLayout rootLayout;
     @ViewById(R.id.list_of_expanses)
     RecyclerView recyclerView;
     @ViewById(R.id.expenses_fab)
     FloatingActionButton fab;
+    @OptionsMenuItem(R.id.search_action)
+    MenuItem menuItem;
 
     @AfterViews
     void LinearLayoutManager() {
@@ -71,11 +72,9 @@ public class ExpensesFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_search, menu);
-        searchView = (SearchView) menu.findItem(R.id.search_action).getActionView();
+        searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint(getString(R.string.search_title));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;

@@ -101,6 +101,7 @@ public final class ExpensesFragment_
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_search, menu);
+        this.menuItem = menu.findItem(R.id.search_action);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
