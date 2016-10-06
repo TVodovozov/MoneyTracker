@@ -4,7 +4,6 @@ package com.loftschool.moneytracker.ui.fragments;
 import android.content.Intent;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -40,6 +39,7 @@ import java.util.List;
 @OptionsMenu (R.menu.menu_search)
 public class ExpensesFragment extends Fragment {
 
+    private static final int LOADER_ID = 0;
     private static final String LOG_TAG = ExpensesFragment.class.getSimpleName();
     final String SEARCH_QUERY_ID = "search_query_id";
     SearchView searchView;
@@ -101,7 +101,7 @@ public class ExpensesFragment extends Fragment {
     }
 
     private void loadExpenses(final String query){
-        getLoaderManager().restartLoader(0, null, new LoaderManager.LoaderCallbacks<List<ExpensesEntity>>() {
+        getLoaderManager().restartLoader(LOADER_ID, null, new LoaderManager.LoaderCallbacks<List<ExpensesEntity>>() {
             @Override
             public Loader<List<ExpensesEntity>> onCreateLoader(int id, Bundle args) {
                 final AsyncTaskLoader<List<ExpensesEntity>> loader = new AsyncTaskLoader<List<ExpensesEntity>>(getActivity()) {

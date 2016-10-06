@@ -11,22 +11,34 @@ import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 
+import com.activeandroid.query.Select;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.adapter.CategoriesAdapter;
 
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.OptionsMenuItem;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.api.BackgroundExecutor;
 
 import java.util.List;
 
 @EFragment (R.layout.categories_fragment)
-public class CategoriesFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<CategoryEntity>> {
+@OptionsMenu (R.menu.menu_search)
+public class CategoriesFragment extends Fragment {
 
-    private final int LOADER_ID = 1;
+    private static final int LOADER_ID = 0;
+    private static final String SEARCH_QUERY_ID = "search_query_id";
+    SearchView searchView;
 
     @ViewById(R.id.categories_fragment_root_layout)
     CoordinatorLayout rootLayout;
@@ -34,14 +46,8 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
     RecyclerView recyclerView;
     @ViewById (R.id.categories_fab)
     FloatingActionButton fab;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        getActivity().setTitle(R.string.menu_category);
-        getLoaderManager().restartLoader(LOADER_ID, null, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-    }
+    @OptionsMenuItem (R.id.search_action)
+    MenuItem menuItem;
 
     @Click (R.id.categories_fab)
     void fabCategoriesOnClickListener (){
@@ -54,26 +60,71 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
     }
 
     @Override
-    public Loader<List<CategoryEntity>> onCreateLoader(int id, Bundle args) {
-        final AsyncTaskLoader<List<CategoryEntity>> loader = new AsyncTaskLoader<List<CategoryEntity>>(getActivity()) {
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle(R.string.menu_category);
+        loadCategory("");
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint(getString(R.string.search_title));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public List<CategoryEntity> loadInBackground() {
-                return CategoryEntity.selectAll();
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
-        };
-        loader.forceLoad();
-        return loader;
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                BackgroundExecutor.cancelAll(SEARCH_QUERY_ID, true);
+                queryCategory(newText);
+                return false;
+            }
+        });
     }
 
-    @Override
-    public void onLoadFinished(Loader<List<CategoryEntity>> loader, List<CategoryEntity> data) {
-        recyclerView.setAdapter(new CategoriesAdapter(data));
+    @Background(delay = 600, id = SEARCH_QUERY_ID)
+    public void queryCategory (String query){
+        loadCategory(query);
     }
 
-    @Override
-    public void onLoaderReset(Loader<List<CategoryEntity>> loader) {
+    private void loadCategory(final String query){
+        getLoaderManager().restartLoader(LOADER_ID, null, new LoaderManager.LoaderCallbacks<List<CategoryEntity>>() {
+            @Override
+            public Loader<List<CategoryEntity>> onCreateLoader(int id, Bundle args) {
+                final AsyncTaskLoader<List<CategoryEntity>> loader = new AsyncTaskLoader<List<CategoryEntity>>(getActivity()) {
+                    @Override
+                    public List<CategoryEntity> loadInBackground() {
+                        return getSelectAll(query);
+                    }
+                };
+                loader.forceLoad();
+                return loader;
+            }
 
+            @Override
+            public void onLoadFinished(Loader<List<CategoryEntity>> loader, List<CategoryEntity> data) {
+                recyclerView.setAdapter(new CategoriesAdapter(data));
+            }
+
+            @Override
+            public void onLoaderReset(Loader<List<CategoryEntity>> loader) {
+
+            }
+        });
     }
+    private List<CategoryEntity> getSelectAll (String query){
+        return new Select()
+                .from(CategoryEntity.class)
+                .where("Name LIKE ?", new String[]{'%' + query + '%'})
+                .execute();
+    }
+
 }
 
 
