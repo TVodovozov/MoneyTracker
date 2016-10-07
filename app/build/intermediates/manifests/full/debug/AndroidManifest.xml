@@ -8,6 +8,8 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="24" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.loftschool.moneytracker.ui.MoneyTrackerApplication"
         android:allowBackup="true"
@@ -23,8 +25,7 @@
             android:value="1" />
 
         <activity
-            android:name="com.loftschool.moneytracker.ui.MainActivity_"
-            android:label="MoneyTracker"
+            android:name="com.loftschool.moneytracker.ui.SplashScreenActivity_"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,9 +34,28 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.loftschool.moneytracker.ui.RegistrationActivity_"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.REGISTRATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.loftschool.moneytracker.ui.MainActivity_"
+            android:label="MoneyTracker"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAINACTYVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.loftschool.moneytracker.ui.AddExpenseActivity_"
-            android:parentActivityName="com.loftschool.moneytracker.ui.MainActivity_" />
-        <activity android:name="com.loftschool.moneytracker.ui.SplashScreenActivity_" />
+            android:parentActivityName="com.loftschool.moneytracker.ui.MainActivity_"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

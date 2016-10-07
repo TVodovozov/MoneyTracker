@@ -32,6 +32,16 @@
 
     <string name="search_title">Поиск</string>
 
+    <string name="registration_title">Регистрация</string>
+    <string name="registration_btn_registration">Регистрация</string>
+    <string name="registration_btn_canсel">Отмена</string>
+    <string name="registration_text_enter_login">Введите логин</string>
+    <string name="registration_text_enter_password">Введите пароль</string>
+    <string name="registration_text_error_login">Минимальное число символов 5</string>
+    <string name="registration_text_error_password">Минимальное число символов 5</string>
+    <string name="registration_text_error">Заполните все поля</string>
+    <string name="registration_internet_error">Нет интернет соединения</string>
+
     <string-array name="categories">
         <item>Выберите категорию</item>
         <item>Развлечения</item>

@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
-import com.loftschool.moneytracker.ui.fragments.ExpensesFragment;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
 import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     void setupViews() {
         setActionBar();
         setDrawerLayout();
-        setFragmentManager();
+        //setFragmentManager();
 
         fragmentManager = getSupportFragmentManager();
         fragmentManager.addOnBackStackChangedListener(this);
@@ -186,10 +185,10 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         }
     }
-    private void setFragmentManager() {
+/*    private void setFragmentManager() {
         fragmentManager = getSupportFragmentManager();
         fragmentManager.addOnBackStackChangedListener(this);
-            }
+            }*/
 
     private void setToolbarTitle(String backStackEntryName) {
         if (backStackEntryName.equals(ExpensesFragment_.class.getName())) {

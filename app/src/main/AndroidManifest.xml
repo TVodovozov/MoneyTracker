@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.loftschool.moneytracker">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,19 +13,40 @@
         android:name=".ui.MoneyTrackerApplication">
         <meta-data android:name="AA_DB_NAME" android:value="MoneyTracker.db" />
         <meta-data android:name="AA_DB_VERSION" android:value="1"/>
+
+        <activity
+            android:name=".ui.SplashScreenActivity_"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.RegistrationActivity_"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.REGISTRATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.MainActivity_"
             android:label="MoneyTracker"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAINACTYVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.AddExpenseActivity_"
-            android:parentActivityName=".ui.MainActivity_"/>
-        <activity android:name=".ui.SplashScreenActivity_"/>
+            android:parentActivityName=".ui.MainActivity_"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
 
     </application>
 
