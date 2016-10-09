@@ -3046,14 +3046,17 @@ containing a value of this type.
         public static final int registration_btn_canсel=0x7f06003a;
         public static final int registration_btn_registration=0x7f06003b;
         public static final int registration_internet_error=0x7f06003c;
-        public static final int registration_text_enter_login=0x7f06003d;
-        public static final int registration_text_enter_password=0x7f06003e;
-        public static final int registration_text_error=0x7f06003f;
-        public static final int registration_text_error_login=0x7f060040;
-        public static final int registration_text_error_password=0x7f060041;
-        public static final int registration_title=0x7f060042;
+        public static final int registration_server_other_error=0x7f06003d;
+        public static final int registration_server_status_busy_login_error=0x7f06003e;
+        public static final int registration_text_enter_login=0x7f06003f;
+        public static final int registration_text_enter_password=0x7f060040;
+        public static final int registration_text_error=0x7f060041;
+        public static final int registration_text_error_login=0x7f060042;
+        public static final int registration_text_error_password=0x7f060043;
+        public static final int registration_title=0x7f060044;
+        public static final int registration_toolbar_title=0x7f060045;
         public static final int search_menu_title=0x7f060013;
-        public static final int search_title=0x7f060043;
+        public static final int search_title=0x7f060046;
         public static final int status_bar_notification_info_overflow=0x7f060014;
     }
     public static final class style {

@@ -54,10 +54,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     void setupViews() {
         setActionBar();
         setDrawerLayout();
-        //setFragmentManager();
-
         fragmentManager = getSupportFragmentManager();
         fragmentManager.addOnBackStackChangedListener(this);
+        replaceFragment(new ExpensesFragment_());
 
         if(CategoryEntity.selectAll().size() == 0){
             generateCategory();}

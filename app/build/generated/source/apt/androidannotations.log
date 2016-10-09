@@ -1,2 +1,12 @@
 16:13:28.790 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
 16:13:28.793 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element register() invalidated by BackgroundHandler
+16:07:00.101 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Click annotated methods should not declare throwing any exception
+16:07:00.105 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element onRegistrationClick() invalidated by ClickHandler
+16:07:00.124 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+16:07:00.125 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element register() invalidated by BackgroundHandler
+20:58:38.447 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+20:58:38.463 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element register(android.view.View) invalidated by BackgroundHandler
+21:05:28.858 [Daemon worker Thread 2] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+21:05:28.861 [Daemon worker Thread 2] WARN  o.a.i.p.ModelValidator:88 - Element register(android.view.View) invalidated by BackgroundHandler
+15:26:20.770 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - Resource name not found in R.id: toolbar
+15:26:20.790 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element toolbar invalidated by ViewByIdHandler

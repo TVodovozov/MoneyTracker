@@ -1,16 +1,16 @@
 package com.loftschool.moneytracker.ui;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.rest.registration.NetworkStatusChecker;
@@ -31,17 +31,17 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private final static String LOG_TAG = RegistrationActivity_.class.getSimpleName();
     private final static int MIN_LENGTH = 5;
-    NetworkStatusChecker networkStatusChecker;
-
+    public static final String STATUS_SUCCESS = "success";
+    public static final String STATUS_LOGIN_BUSY_ALREADY = "Login busy already";
 
     @ViewById (R.id.registration_layout_root)
     RelativeLayout registrationLayout;
     @ViewById(R.id.enter_login)
-    EditText login;
+    EditText enterLogin;
     @ViewById(R.id.text_login)
     TextView textLogin;
     @ViewById(R.id.enter_password)
-    EditText password;
+    EditText enterPassword;
     @ViewById(R.id.text_password)
     TextView textPassword;
     @ViewById(R.id.registration_btn_registration)
@@ -54,37 +54,46 @@ public class RegistrationActivity extends AppCompatActivity {
     void onRegistrationCancelClick() {
         finish();
     }
+
     @Click(R.id.registration_btn_registration)
-    void onRegistrationClick(){
-            if (password.getText().toString().equals("") & login.getText().toString().equals("")
-                    || password.getText().toString().equals("")
-                    || login.getText().toString().equals("")) {
-                Toast.makeText(getApplicationContext(), R.string.registration_text_error, Toast.LENGTH_SHORT).show();
-            } else if
-                    (login.getText().length() < MIN_LENGTH) {
-                Toast.makeText(getApplicationContext(), R.string.registration_text_error_login, Toast.LENGTH_SHORT).show();
-            } else if
-                    (password.getText().length() < MIN_LENGTH) {
-                Toast.makeText(getApplicationContext(), R.string.registration_text_error_password, Toast.LENGTH_SHORT).show();
-            } else  {
-                    startActivity(new Intent(RegistrationActivity.this, MainActivity_.class));
-                }
+    void registration(View viewClick) {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        if(enterLogin.length() < MIN_LENGTH || enterPassword.length() < MIN_LENGTH) {
+            Snackbar.make(viewClick, getString(R.string.registration_text_error_login), Snackbar.LENGTH_LONG).show();
+            return;
+        }
+        registerUser(viewClick);
     }
 
     @Background
-    void register() {
+    void registerUser(View view) {
+
+        String login = enterLogin.getText().toString();
+        String password = enterPassword.getText().toString();
+
         RestService restService = new RestService();
-        Call<UserRegistrationModel> request = null;
-        try {
-            request = restService.register("tvodovozov_1", "test_1");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            UserRegistrationModel registrationModel = request.execute().body();
-            Log.d(LOG_TAG, "Status: " + registrationModel.getStatus());
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        if(!NetworkStatusChecker.isNetworkAvailable(this)) {
+            Snackbar.make(view, getString(R.string.registration_internet_error), Snackbar.LENGTH_SHORT).show();
+        } else {
+            Call<UserRegistrationModel> request = restService.register(login, password);
+            try {
+                UserRegistrationModel registrationModel = request.execute().body();
+                Log.d(LOG_TAG, "Status: " + registrationModel.getStatus());
+                if (registrationModel.getStatus().equals(STATUS_SUCCESS)){
+                    MainActivity_.intent(this).start();
+                } else if (registrationModel.getStatus().equals(STATUS_LOGIN_BUSY_ALREADY)){
+                    Snackbar.make(view, getString(R.string.registration_server_status_busy_login_error), Snackbar.LENGTH_SHORT).show();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
+

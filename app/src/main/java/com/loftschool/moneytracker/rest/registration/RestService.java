@@ -20,10 +20,11 @@ public final class RestService {
     }
 
     public Call<UserRegistrationModel> register(@NonNull String login,
-                                                @NonNull String password) throws IOException {
+                                                @NonNull String password) {
 
         return restClient.getRegisterUserAPI()
                 .registerUser(login, password, REGISTER_FLAG);
     }
+
 
 }

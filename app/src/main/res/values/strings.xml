@@ -41,6 +41,9 @@
     <string name="registration_text_error_password">Минимальное число символов 5</string>
     <string name="registration_text_error">Заполните все поля</string>
     <string name="registration_internet_error">Нет интернет соединения</string>
+    <string name="registration_server_status_busy_login_error">Login занят, введите другой login</string>
+    <string name="registration_server_other_error">Произошла неизвестная ошибка</string>
+    <string name="registration_toolbar_title">Регистрация</string>
 
     <string-array name="categories">
         <item>Выберите категорию</item>
