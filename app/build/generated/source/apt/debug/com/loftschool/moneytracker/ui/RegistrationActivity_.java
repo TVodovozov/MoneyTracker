@@ -120,18 +120,6 @@ public final class RegistrationActivity_
     }
 
     @Override
-    void showNoInternet() {
-        UiThreadExecutor.runTask("", new Runnable() {
-
-            @Override
-            public void run() {
-                RegistrationActivity_.super.showNoInternet();
-            }
-        }
-        , 0L);
-    }
-
-    @Override
     void showLoginBusy() {
         UiThreadExecutor.runTask("", new Runnable() {
 
@@ -174,18 +162,6 @@ public final class RegistrationActivity_
             @Override
             public void run() {
                 RegistrationActivity_.super.showRegistrationErrorPassword();
-            }
-        }
-        , 0L);
-    }
-
-    @Override
-    void showRegistrationErrorEmpty() {
-        UiThreadExecutor.runTask("", new Runnable() {
-
-            @Override
-            public void run() {
-                RegistrationActivity_.super.showRegistrationErrorEmpty();
             }
         }
         , 0L);

@@ -54,6 +54,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
     @Click(R.id.registration_btn_registration)
     void registerUser() {
+
         if (NetworkStatusChecker.isNetworkAvailable(this)) {
             String login = enterLogin.getText().toString();
             String password = enterPassword.getText().toString();
@@ -61,14 +62,18 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (login.length() >= MIN_LENGTH && password.length() >= MIN_LENGTH) {
                     register(login, password);
                 } else {
-                    showRegistrationErrorEmpty();
+                    Snackbar.make(registrationLayout,
+                            getString(R.string.registration_text_error),
+                            Snackbar.LENGTH_LONG).show();
                 }
             } else {
                 if (TextUtils.isEmpty(login)) showRegistrationErrorLogin();
                 if (TextUtils.isEmpty(password)) showRegistrationErrorPassword();
             }
         } else {
-            showNoInternet();
+            Snackbar.make(registrationLayout,
+                    getString(R.string.registration_internet_error),
+                    Snackbar.LENGTH_SHORT).show();
         }
     }
     @Background
@@ -89,32 +94,33 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         }
     }
+
     @UiThread
     void navigateToMainScreen() {
         startActivity(new Intent(this, MainActivity_.class));
     }
     @UiThread
-    void showNoInternet(){
-        Snackbar.make(registrationLayout, getString(R.string.registration_internet_error), Snackbar.LENGTH_SHORT).show();
+    void showLoginBusy() {
+        Snackbar.make(registrationLayout,
+                getString(R.string.registration_server_status_busy_login_error),
+                Snackbar.LENGTH_SHORT).show();
     }
     @UiThread
-    void showLoginBusy(){
-        Snackbar.make(registrationLayout, getString(R.string.registration_server_status_busy_login_error), Snackbar.LENGTH_SHORT).show();
+    void showUnknownError() {
+        Snackbar.make(registrationLayout,
+                getString(R.string.registration_server_other_error),
+                Snackbar.LENGTH_SHORT).show();
     }
     @UiThread
-    void showUnknownError(){
-        Snackbar.make(registrationLayout, getString(R.string.registration_server_other_error), Snackbar.LENGTH_SHORT).show();
+    void showRegistrationErrorLogin() {
+        Snackbar.make(registrationLayout,
+                getString(R.string.registration_text_error_login),
+                Snackbar.LENGTH_LONG).show();
     }
     @UiThread
-    void showRegistrationErrorLogin (){
-        Snackbar.make(registrationLayout, getString(R.string.registration_text_error_login), Snackbar.LENGTH_LONG).show();
-    }
-    @UiThread
-    void showRegistrationErrorPassword (){
-        Snackbar.make(registrationLayout, getString(R.string.registration_text_error_password), Snackbar.LENGTH_LONG).show();
-    }
-    @UiThread
-    void showRegistrationErrorEmpty (){
-        Snackbar.make(registrationLayout, getString(R.string.registration_text_error), Snackbar.LENGTH_LONG).show();
+    void showRegistrationErrorPassword() {
+        Snackbar.make(registrationLayout,
+                getString(R.string.registration_text_error_password),
+                Snackbar.LENGTH_LONG).show();
     }
 }
