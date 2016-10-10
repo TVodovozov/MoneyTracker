@@ -610,9 +610,9 @@
     <string name="registration_server_status_busy_login_error">Login занят, введите другой login</string>
     <string name="registration_text_enter_login">Введите логин</string>
     <string name="registration_text_enter_password">Введите пароль</string>
-    <string name="registration_text_error">Заполните все поля</string>
-    <string name="registration_text_error_login">Минимальное число символов 5</string>
-    <string name="registration_text_error_password">Минимальное число символов 5</string>
+    <string name="registration_text_error">Поля менее 5 символов</string>
+    <string name="registration_text_error_login">Поле Login пустое</string>
+    <string name="registration_text_error_password">Поле Пароль пустое</string>
     <string name="registration_title">Регистрация</string>
     <string name="registration_toolbar_title">Регистрация</string>
     <string name="search_menu_title">Search</string>

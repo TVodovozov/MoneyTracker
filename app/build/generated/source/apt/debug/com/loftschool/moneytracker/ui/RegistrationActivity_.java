@@ -100,34 +100,105 @@ public final class RegistrationActivity_
 
                 @Override
                 public void onClick(View view) {
-                    RegistrationActivity_.this.registration(view);
+                    RegistrationActivity_.this.registerUser();
                 }
             }
             );
         }
-        ready();
     }
 
     @Override
-    void enabledRegistrationButton() {
+    void navigateToMainScreen() {
         UiThreadExecutor.runTask("", new Runnable() {
 
             @Override
             public void run() {
-                RegistrationActivity_.super.enabledRegistrationButton();
+                RegistrationActivity_.super.navigateToMainScreen();
             }
         }
         , 0L);
     }
 
     @Override
-    void registerUser(final View view) {
+    void showNoInternet() {
+        UiThreadExecutor.runTask("", new Runnable() {
+
+            @Override
+            public void run() {
+                RegistrationActivity_.super.showNoInternet();
+            }
+        }
+        , 0L);
+    }
+
+    @Override
+    void showLoginBusy() {
+        UiThreadExecutor.runTask("", new Runnable() {
+
+            @Override
+            public void run() {
+                RegistrationActivity_.super.showLoginBusy();
+            }
+        }
+        , 0L);
+    }
+
+    @Override
+    void showUnknownError() {
+        UiThreadExecutor.runTask("", new Runnable() {
+
+            @Override
+            public void run() {
+                RegistrationActivity_.super.showUnknownError();
+            }
+        }
+        , 0L);
+    }
+
+    @Override
+    void showRegistrationErrorLogin() {
+        UiThreadExecutor.runTask("", new Runnable() {
+
+            @Override
+            public void run() {
+                RegistrationActivity_.super.showRegistrationErrorLogin();
+            }
+        }
+        , 0L);
+    }
+
+    @Override
+    void showRegistrationErrorPassword() {
+        UiThreadExecutor.runTask("", new Runnable() {
+
+            @Override
+            public void run() {
+                RegistrationActivity_.super.showRegistrationErrorPassword();
+            }
+        }
+        , 0L);
+    }
+
+    @Override
+    void showRegistrationErrorEmpty() {
+        UiThreadExecutor.runTask("", new Runnable() {
+
+            @Override
+            public void run() {
+                RegistrationActivity_.super.showRegistrationErrorEmpty();
+            }
+        }
+        , 0L);
+    }
+
+    @Override
+    void register(final String login, final String password) {
         BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0L, "") {
 
             @Override
             public void execute() {
                 try {
-                    RegistrationActivity_.super.registerUser(view);
+                    RegistrationActivity_.super.register(login, password);
                 } catch (final Throwable e) {
                     Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
                 }

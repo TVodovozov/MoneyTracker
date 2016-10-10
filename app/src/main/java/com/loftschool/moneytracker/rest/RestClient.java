@@ -1,8 +1,6 @@
 package com.loftschool.moneytracker.rest;
 
 
-import com.loftschool.moneytracker.rest.registration.RegisterUserAPI;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -11,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestClient {
 
     private static final String BASE_URL = "http://lmt.loftblog.tmweb.ru";
-    private RegisterUserAPI registerUserAPI;
+    private LoftSchoolAPI loftSchoolAPI;
 
     public RestClient(){
 
@@ -28,10 +26,10 @@ public class RestClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        registerUserAPI = retrofit.create(RegisterUserAPI.class);
+        loftSchoolAPI = retrofit.create(LoftSchoolAPI.class);
     }
 
-    public RegisterUserAPI getRegisterUserAPI() {
-        return registerUserAPI;
+    public LoftSchoolAPI getLoftSchoolAPI() {
+        return loftSchoolAPI;
     }
 }
