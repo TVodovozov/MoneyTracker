@@ -30,6 +30,8 @@
 
     <string name="category_snackbar_massage">Это snackbar</string>
 
+    <string name="search_title">Поиск</string>
+
     <string-array name="categories">
         <item>Выберите категорию</item>
         <item>Развлечения</item>

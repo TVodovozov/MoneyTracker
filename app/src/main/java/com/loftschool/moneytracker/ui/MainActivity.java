@@ -14,7 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
+import com.loftschool.moneytracker.ui.fragments.ExpensesFragment;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
 import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     private static final String LOG_TAG = MainActivity_.class.getSimpleName();
     private FragmentManager fragmentManager;
+    private CategoryEntity categoryEntity;
+
     @ViewById(R.id.toolbar_layout)
     Toolbar toolbar;
     @ViewById(R.id.drawer_layout)
@@ -52,6 +56,33 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         setActionBar();
         setDrawerLayout();
         setFragmentManager();
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager.addOnBackStackChangedListener(this);
+
+        if(CategoryEntity.selectAll().size() == 0){
+            generateCategory();}
+    }
+
+    public void generateCategory() {
+        categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Развлечения");
+        categoryEntity.save();
+        categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Продукты");
+        categoryEntity.save();
+        categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Кафе");
+        categoryEntity.save();
+        categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Образование");
+        categoryEntity.save();
+        categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Лекарства");
+        categoryEntity.save();
+        categoryEntity = new CategoryEntity();
+        categoryEntity.setName("Иное");
+        categoryEntity.save();
     }
 
     private void setDrawerLayout() {

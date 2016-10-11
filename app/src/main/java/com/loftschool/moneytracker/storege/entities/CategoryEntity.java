@@ -1,5 +1,7 @@
 package com.loftschool.moneytracker.storege.entities;
 
+import android.support.v4.media.MediaMetadataCompat;
+
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -32,7 +34,10 @@ public class CategoryEntity extends Model {
     public List<ExpensesEntity> expenses(){
         return getMany(ExpensesEntity.class, "category");
     }
+
     public static List<CategoryEntity> selectAll(){
-        return new Select().from(CategoryEntity.class).execute();
+        return new Select()
+                .from(CategoryEntity.class)
+                .execute();
     }
 }

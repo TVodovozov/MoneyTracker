@@ -12,10 +12,13 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import com.loftschool.moneytracker.R;
+import org.androidannotations.api.BackgroundExecutor;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
@@ -64,6 +67,7 @@ public final class CategoriesFragment_
 
     private void init_(Bundle savedInstanceState) {
         OnViewChangedNotifier.registerOnViewChangedListener(this);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -91,6 +95,29 @@ public final class CategoriesFragment_
             }
             );
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_search, menu);
+        this.menuItem = menu.findItem(R.id.search_action);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void queryCategory(final String query) {
+        BackgroundExecutor.execute(new BackgroundExecutor.Task("search_query_id", 600L, "") {
+
+            @Override
+            public void execute() {
+                try {
+                    CategoriesFragment_.super.queryCategory(query);
+                } catch (final Throwable e) {
+                    Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
+                }
+            }
+        }
+        );
     }
 
     public static class FragmentBuilder_
