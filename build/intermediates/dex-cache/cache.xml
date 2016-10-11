@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_d0bb9e1a0da0c344d11803e0b2fc7ce4ea3f71ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_9f99347cbda3134e78dac29892850314c82b4152.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_73b0656bae39bacea66f6b63229e6d3e0d3f98b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_2d9c6fd0ded22dbdcb59491cb1b088397cb47b29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-24.2.1_13b24d84985a804573ca55fff713080695d6078d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_2b0c3854f555d35ade4322b21724e5a826683299.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_d60b1523057551efd896b19fc2e4f705c285db07.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_c1b0de1e5eb59eca912a652c79b91acd69595518.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_33b40f536ff6bb66ab4060261d06c200d5f90d39.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_d38dda0b8e37ee075f13e50f1d941ee3fee50edf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\org.androidannotations\androidannotations-api\4.1.0\5f9b485312ee0ee95355d517f36890915de1bff0\androidannotations-api-4.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f9b485312ee0ee95355d517f36890915de1bff0">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\androidannotations-api-4.1.0_77270d43e1e3a3228d33cc80cddcb2a795eef6c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_950f574be2036705eefef5550bec11dc973e99c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_3df13f582ac0bf9eead977136e1dfb9635f04e57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Timur\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_1803d9566ccfec4198bd581574e43882cff08b4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b7fc1d1e1c13db505d192672d2f828de36987507.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.michaelpardo\activeandroid\3.1.0-SNAPSHOT\4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08\activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\activeandroid-3.1.0-SNAPSHOT_0f4b05f63c6a5ef2e3961eb891c70401e2c0a789.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_c1eab6c7fe524a8f587808276b3662c8b67cb5ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_02587649fe0128ec0197260bcd684b39fa692cc9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_46a84c2b1bfd43696f67e48a80e13cb47d884599.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_ab0f3224a565e54337dce2e74f0c4b790463ed90.jar" />
+    </item>
+
+</items>

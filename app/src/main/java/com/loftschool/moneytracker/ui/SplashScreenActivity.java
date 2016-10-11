@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-
 import com.loftschool.moneytracker.R;
 
 import org.androidannotations.annotations.AfterViews;
@@ -18,7 +17,7 @@ public class SplashScreenActivity  extends AppCompatActivity{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity_.class);
                 SplashScreenActivity.this.startActivity(intent);
                 SplashScreenActivity.this.finish();
             }

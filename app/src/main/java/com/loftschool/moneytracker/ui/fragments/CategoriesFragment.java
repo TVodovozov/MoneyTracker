@@ -2,65 +2,78 @@ package com.loftschool.moneytracker.ui.fragments;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.loftschool.moneytracker.R;
-import com.loftschool.moneytracker.models.CategoriesModel;
+import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.adapter.CategoriesAdapter;
 
-import java.util.ArrayList;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ViewById;
+
 import java.util.List;
 
-public class CategoriesFragment extends Fragment{
+@EFragment (R.layout.categories_fragment)
+public class CategoriesFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<CategoryEntity>> {
 
-    private RecyclerView recyclerView;
-    private CategoriesAdapter categoriesAdapter;
-    private FloatingActionButton fab;
+    private final int LOADER_ID = 1;
 
+    @ViewById(R.id.categories_fragment_root_layout)
+    CoordinatorLayout rootLayout;
+    @ViewById (R.id.list_of_categories)
+    RecyclerView recyclerView;
+    @ViewById (R.id.categories_fab)
+    FloatingActionButton fab;
 
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.categories_fragment, container, false);
-
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.list_of_categories);
-        categoriesAdapter = new CategoriesAdapter(getCategories());
+    public void onStart() {
+        super.onStart();
+        getActivity().setTitle(R.string.menu_category);
+        getLoaderManager().restartLoader(LOADER_ID, null, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(categoriesAdapter);
-
-        fab = (FloatingActionButton) rootView.findViewById(R.id.categories_fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick (View view){
-                Snackbar.make(view, "Это снекбар внутри CategoriesFragment" , Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        return rootView;
-
     }
 
-    private List<CategoriesModel> getCategories(){
-        List<CategoriesModel> category = new ArrayList<>();
-        category.add(new CategoriesModel("Развлечения"));
-        category.add(new CategoriesModel("Мои покупки"));
-        category.add(new CategoriesModel("Образование"));
-        category.add(new CategoriesModel("Иное"));
+    @Click (R.id.categories_fab)
+    void fabCategoriesOnClickListener (){
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(rootLayout, R.string.category_snackbar_massage, Snackbar.LENGTH_LONG).show();
+            }
+        });
+    }
 
-        return category;
+    @Override
+    public Loader<List<CategoryEntity>> onCreateLoader(int id, Bundle args) {
+        final AsyncTaskLoader<List<CategoryEntity>> loader = new AsyncTaskLoader<List<CategoryEntity>>(getActivity()) {
+            @Override
+            public List<CategoryEntity> loadInBackground() {
+                return CategoryEntity.selectAll();
+            }
+        };
+        loader.forceLoad();
+        return loader;
+    }
 
+    @Override
+    public void onLoadFinished(Loader<List<CategoryEntity>> loader, List<CategoryEntity> data) {
+        recyclerView.setAdapter(new CategoriesAdapter(data));
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<CategoryEntity>> loader) {
 
     }
 }
+
+

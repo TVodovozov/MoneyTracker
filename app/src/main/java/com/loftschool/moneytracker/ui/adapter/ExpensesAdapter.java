@@ -8,17 +8,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.loftschool.moneytracker.R;
-import com.loftschool.moneytracker.models.ExpensesModel;
+import com.loftschool.moneytracker.storege.entities.ExpensesEntity;
 
 import java.util.List;
 
-public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.ExpensesHolder>{
+public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.ExpensesHolder> {
 
-    private List<ExpensesModel> expensesList;
+    private List<ExpensesEntity> expenseList;
 
-    public ExpensesAdapter(List<ExpensesModel> expensesList){
-        this.expensesList = expensesList;
-
+    public ExpensesAdapter(List<ExpensesEntity> expenseList) {
+        this.expenseList = expenseList;
     }
 
     @Override
@@ -30,27 +29,25 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
 
     @Override
     public void onBindViewHolder(ExpensesHolder holder, int position) {
-        ExpensesModel expense = expensesList.get(position);
-        holder.name.setText(expense.getName());
-        holder.prise.setText(expense.getPrice());
-
+        ExpensesEntity expense = expenseList.get(position);
+        holder.name.setText(expense.name);
+        holder.price.setText(expense.price);
     }
 
     @Override
     public int getItemCount() {
-        return expensesList.size();
+        return expenseList.size();
     }
 
-    class ExpensesHolder extends RecyclerView.ViewHolder{
+    class ExpensesHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
-        TextView prise;
+        public TextView name;
+        public TextView price;
 
         public ExpensesHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.expanse_item_expense_name);
-            prise = (TextView) itemView.findViewById(R.id.expanse_item_expense_price);
-
+            price = (TextView) itemView.findViewById(R.id.expanse_item_expense_price);
         }
     }
 }
