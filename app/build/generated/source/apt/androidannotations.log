@@ -1,17 +1,12 @@
-00:32:10.125 [Daemon worker Thread 12] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
-00:32:10.138 [Daemon worker Thread 12] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler
-00:39:38.949 [Daemon worker Thread 14] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsItem can only have the following parameter: [ android.view.MenuItem (optional) ]
-00:39:38.950 [Daemon worker Thread 14] WARN  o.a.i.p.ModelValidator:88 - Element qq(android.view.Menu) invalidated by OptionsItemHandler
-00:41:46.468 [Daemon worker Thread 15] ERROR o.a.i.p.ModelValidator:77 - Resource name not found in R.id: qq
-00:41:46.469 [Daemon worker Thread 15] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsItem can only have the following parameter: [ android.view.MenuItem (optional) ]
-00:41:46.470 [Daemon worker Thread 15] WARN  o.a.i.p.ModelValidator:88 - Element qq(android.view.Menu) invalidated by OptionsItemHandler
-00:42:10.535 [Daemon worker Thread 15] ERROR o.a.i.p.ModelValidator:77 - Resource name not found in R.id: qq
-00:42:10.536 [Daemon worker Thread 15] WARN  o.a.i.p.ModelValidator:88 - Element qq(android.view.Menu) invalidated by OptionsMenuItemHandler
-00:43:08.554 [Daemon worker Thread 15] ERROR o.a.i.p.ModelValidator:77 - Resource name not found in R.id: qq
-00:43:08.556 [Daemon worker Thread 15] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsItemHandler
-00:46:59.568 [Daemon worker Thread 17] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
-00:46:59.569 [Daemon worker Thread 17] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler
-15:36:58.859 [Daemon worker Thread 4] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
-15:36:58.862 [Daemon worker Thread 4] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler
-15:37:31.350 [Daemon worker Thread 4] ERROR o.a.i.p.ModelValidator:77 - method annotated with org.androidannotations.annotations.OptionsMenuItem can only have the following parameter: [ any type ]
-15:37:31.352 [Daemon worker Thread 4] WARN  o.a.i.p.ModelValidator:88 - Element qq() invalidated by OptionsMenuItemHandler
+16:13:28.790 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+16:13:28.793 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element register() invalidated by BackgroundHandler
+16:07:00.101 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Click annotated methods should not declare throwing any exception
+16:07:00.105 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element onRegistrationClick() invalidated by ClickHandler
+16:07:00.124 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+16:07:00.125 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element register() invalidated by BackgroundHandler
+20:58:38.447 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+20:58:38.463 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element register(android.view.View) invalidated by BackgroundHandler
+21:05:28.858 [Daemon worker Thread 2] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.Background annotated methods should not declare throwing any exception
+21:05:28.861 [Daemon worker Thread 2] WARN  o.a.i.p.ModelValidator:88 - Element register(android.view.View) invalidated by BackgroundHandler
+15:26:20.770 [Daemon worker] ERROR o.a.i.p.ModelValidator:77 - Resource name not found in R.id: toolbar
+15:26:20.790 [Daemon worker] WARN  o.a.i.p.ModelValidator:88 - Element toolbar invalidated by ViewByIdHandler

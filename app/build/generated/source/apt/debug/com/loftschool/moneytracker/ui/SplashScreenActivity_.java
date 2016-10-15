@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import com.loftschool.moneytracker.R;
+import org.androidannotations.api.BackgroundExecutor;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.builder.PostActivityStarter;
 import org.androidannotations.api.view.HasViews;
@@ -71,7 +72,23 @@ public final class SplashScreenActivity_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        loading();
+        ready();
+    }
+
+    @Override
+    void doInBackground() {
+        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 3000L, "") {
+
+            @Override
+            public void execute() {
+                try {
+                    SplashScreenActivity_.super.doInBackground();
+                } catch (final Throwable e) {
+                    Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
+                }
+            }
+        }
+        );
     }
 
     public static class IntentBuilder_

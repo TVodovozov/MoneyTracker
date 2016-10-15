@@ -32,6 +32,19 @@
 
     <string name="search_title">Поиск</string>
 
+    <string name="registration_title">Регистрация</string>
+    <string name="registration_btn_registration">Регистрация</string>
+    <string name="registration_btn_canсel">Отмена</string>
+    <string name="registration_text_enter_login">Введите логин</string>
+    <string name="registration_text_enter_password">Введите пароль</string>
+    <string name="registration_text_error_login">Поле Login пустое</string>
+    <string name="registration_text_error_password">Поле Пароль пустое</string>
+    <string name="registration_text_error">Поля менее 5 символов</string>
+    <string name="registration_internet_error">Нет интернет соединения</string>
+    <string name="registration_server_status_busy_login_error">Login занят, введите другой login</string>
+    <string name="registration_server_other_error">Произошла неизвестная ошибка</string>
+    <string name="registration_toolbar_title">Регистрация</string>
+
     <string-array name="categories">
         <item>Выберите категорию</item>
         <item>Развлечения</item>
