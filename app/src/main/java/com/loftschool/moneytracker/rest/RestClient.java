@@ -11,7 +11,7 @@ public class RestClient {
     private static final String BASE_URL = "http://lmt.loftblog.tmweb.ru";
     private LoftSchoolAPI loftSchoolAPI;
 
-    public RestClient(){
+    public RestClient() {
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);

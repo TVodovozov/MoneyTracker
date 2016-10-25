@@ -184,10 +184,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         }
     }
-/*    private void setFragmentManager() {
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.addOnBackStackChangedListener(this);
-            }*/
 
     private void setToolbarTitle(String backStackEntryName) {
         if (backStackEntryName.equals(ExpensesFragment_.class.getName())) {

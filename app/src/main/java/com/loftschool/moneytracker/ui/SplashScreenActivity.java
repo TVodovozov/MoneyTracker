@@ -7,26 +7,32 @@ import android.support.v7.app.AppCompatActivity;
 import com.loftschool.moneytracker.R;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 
 @EActivity(R.layout.splash_activity)
-public class SplashScreenActivity  extends AppCompatActivity{
+public class SplashScreenActivity extends AppCompatActivity {
 
     @AfterViews
     void ready() {
-        doInBackground();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (MoneyTrackerApplication.getAuthToken().equals("")) {
+                    startActivity(new Intent(SplashScreenActivity.this, LoginActivity_.class));
+                    finish();
+                } else {
+                    startActivity(new Intent(SplashScreenActivity.this, MainActivity_.class));
+                    finish();
+                }
+            }
+        }, 3000);
     }
-
-    @Background(delay=3000)
-    void doInBackground() {
-        RegistrationActivity_.intent(this).start();
-    }
-
+    
     @Override
     protected void onPause() {
         super.onPause();
         finish();
     }
 }
+
 

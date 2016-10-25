@@ -21,11 +21,14 @@ public class MoneyTrackerApplication extends Application {
         sharedPreferences = getSharedPreferences(ConstantsManager.SHARE_PREF_FILE_NAME, MODE_PRIVATE);
     }
 
-    private static void saveAuthToken(String token){
-        sharedPreferences.edit().putString(ConstantsManager.TOKEN_KEY, token).apply();
+    public static void saveAuthToken(String token) {
+        sharedPreferences
+                .edit()
+                .putString(ConstantsManager.TOKEN_KEY, token)
+                .apply();
     }
 
-    private static String getAuthToken(){
+    public static String getAuthToken() {
         return sharedPreferences.getString(ConstantsManager.TOKEN_KEY, "");
     }
 }

@@ -68,6 +68,10 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login_activity.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\login_activity.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\statistic_fragment.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\statistic_fragment.xml"
     },
