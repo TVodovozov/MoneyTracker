@@ -101,6 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                     showLoginWrong();
                 if (userLoginModel.getStatus().equals(ConstantsManager.STATUS_WRONG_PASSWORD))
                     showPasswordWrong();
+                if (userLoginModel.getStatus().equals(ConstantsManager.STATUS_ERROR))
+                    showError();
             }
         } catch (IOException e) {
             showUnknownError();
@@ -131,6 +133,13 @@ public class LoginActivity extends AppCompatActivity {
     void showPasswordWrong() {
         Snackbar.make(loginLayout,
                 getString(R.string.auth_server_status_wrong_password_error),
+                Snackbar.LENGTH_SHORT).show();
+    }
+
+    @UiThread
+    void showError() {
+        Snackbar.make(loginLayout,
+                getString(R.string.auth_server_status_error),
                 Snackbar.LENGTH_SHORT).show();
     }
 

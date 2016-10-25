@@ -49,6 +49,7 @@
     <string name="auth_btn_new_registration">Регистрация нового пользователя</string>
     <string name="auth_server_status_wrong_login_error">Не правильно введен login</string>
     <string name="auth_server_status_wrong_password_error">Не правильно введен пароль</string>
+    <string name="auth_server_status_error">Произошла ошибка сервера</string>
 
 
     <string-array name="categories">
