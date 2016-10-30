@@ -21,57 +21,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_c1b0de1e5eb59eca912a652c79b91acd69595518.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_3df13f582ac0bf9eead977136e1dfb9635f04e57.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Timur\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_1803d9566ccfec4198bd581574e43882cff08b4c.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.michaelpardo\activeandroid\3.1.0-SNAPSHOT\4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08\activeandroid-3.1.0-SNAPSHOT.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
         <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\activeandroid-3.1.0-SNAPSHOT_0f4b05f63c6a5ef2e3961eb891c70401e2c0a789.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\glide-3.7.0_7012a7189b5b3f89f01453d44aa703d2f352e409.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_c1eab6c7fe524a8f587808276b3662c8b67cb5ed.jar" />
     </item>
     <item
         is-multidex="false"
@@ -102,15 +57,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_ab0f3224a565e54337dce2e74f0c4b790463ed90.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -138,15 +84,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_2d9c6fd0ded22dbdcb59491cb1b088397cb47b29.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -156,21 +93,21 @@
     </item>
     <item
         is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.8.0_44e917ca5f49675b48fc35ef3b579bace4e2ce86.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
         <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\retrofit-2.1.0_349bd61bf03dcc733fd93c792688af1f28ebe889.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_d60b1523057551efd896b19fc2e4f705c285db07.jar" />
     </item>
     <item
         is-multidex="false"
@@ -210,21 +147,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b7fc1d1e1c13db505d192672d2f828de36987507.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\converter-gson-2.1.0_0ff6e40c67c45ca88f571b33264f2159688098ea.jar" />
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-9.8.0_6bafb33d8af3e699c04d83920dd389d510219b27.jar" />
     </item>
     <item
         is-multidex="false"
@@ -234,6 +162,141 @@
         revision="23.0.3"
         sha1="381fc1096ba65040d8e80ea43b2e1d9bad02345e">
         <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\logging-interceptor-3.4.1_ae726610c7175bd519276a8823cdf0318de03a24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.8.0_dbd8d9c2b70d5870da114c0ef854667075157d17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_c1b0de1e5eb59eca912a652c79b91acd69595518.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_3df13f582ac0bf9eead977136e1dfb9635f04e57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Timur\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_1803d9566ccfec4198bd581574e43882cff08b4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\glide-3.7.0_7012a7189b5b3f89f01453d44aa703d2f352e409.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-base-9.8.0_a230d871c43074e04776a7042e330002ef5ad235.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_c1eab6c7fe524a8f587808276b3662c8b67cb5ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-9.8.0_929572da8a12d591da2564d94eecaaf07baee886.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_ab0f3224a565e54337dce2e74f0c4b790463ed90.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-9.8.0_7d9ef7e797e4335fe0577dcf59e187c8704c439f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_2d9c6fd0ded22dbdcb59491cb1b088397cb47b29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_d60b1523057551efd896b19fc2e4f705c285db07.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b7fc1d1e1c13db505d192672d2f828de36987507.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\TestProjects\MoneyTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.8.0_46adeda49da71baccf2d7ab917e33d2b5e2f0486.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Timur\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="D:\TestProjects\MoneyTracker\app\build\intermediates\pre-dexed\debug\converter-gson-2.1.0_0ff6e40c67c45ca88f571b33264f2159688098ea.jar" />
     </item>
     <item
         is-multidex="false"

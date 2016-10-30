@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -23,12 +24,16 @@ import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
 import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
+import com.loftschool.moneytracker.utils.MyDoBackground;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.InstanceState;
+import org.androidannotations.annotations.NonConfigurationInstance;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringRes;
+
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
@@ -43,6 +48,12 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     DrawerLayout drawer;
     @ViewById(R.id.navigation_view)
     NavigationView navigationView;
+    @ViewById(R.id.text_view_email)
+    TextView email;
+    @ViewById(R.id.text_view_name)
+    TextView name;
+    @ViewById(R.id.imageView)
+    ImageView avatar;
     @StringRes(R.string.menu_buy)
     String expensesTitle;
     @StringRes(R.string.menu_category)
@@ -53,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     String settingsTitle;
     @InstanceState
     String toolbarTitle;
+    @Bean
+    LogoutUser quitUser;
+
+    @NonConfigurationInstance
+    @Bean
+    MyDoBackground taskBackground;
 
     @AfterViews
     void setupViews() {
@@ -65,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         if (CategoryEntity.selectAll().size() == 0) {
             generateCategory();
         }
+        taskBackground.checkGoogleTokenStatus();
+
     }
 
     public void generateCategory() {
@@ -134,15 +153,16 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         if (toolbarTitle != null)
             setTitle(toolbarTitle);
 
-        View headerView = navigationView.getHeaderView(0);
-        ImageView avatar = (ImageView) headerView.findViewById(R.id.imageView);
+        /*name.setText(MoneyTrackerApplication.getName());
+        email.setText(MoneyTrackerApplication.getEmail());*/
+        String url = MoneyTrackerApplication.getPicture();
 
         Glide
                 .with(this)
-                .load(R.mipmap.logo)
+                .load(url)
                 .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .into(avatar);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+             //   .into(avatar);
     }
 
     private void setActionBar() {
@@ -175,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                         replaceFragment(new SettingsFragment_());
                         break;
                     case R.id.menu_quit:
+                        quitUser.userLogout();
                         break;
                 }
                 return true;

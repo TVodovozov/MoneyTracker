@@ -17,7 +17,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.utils.MyDoBackground;
+import com.loftschool.moneytracker.utils.MyDoBackground_;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.builder.PostActivityStarter;
 import org.androidannotations.api.view.HasViews;
@@ -46,6 +50,18 @@ public final class MainActivity_
         this.categoriesTitle = resources_.getString(R.string.menu_category);
         this.statisticsTitle = resources_.getString(R.string.menu_statistics);
         this.settingsTitle = resources_.getString(R.string.menu_settings);
+        MainActivity_.NonConfigurationInstancesHolder nonConfigurationInstance = ((MainActivity_.NonConfigurationInstancesHolder) super.getLastCustomNonConfigurationInstance());
+        if (nonConfigurationInstance!= null) {
+            taskBackground = nonConfigurationInstance.taskBackground;
+            ((MyDoBackground_) taskBackground).rebind(this);
+        }
+        this.quitUser = LogoutUser_.getInstance_(this);
+        if (this.taskBackground == null) {
+            this.taskBackground = MyDoBackground_.getInstance_(this);
+        }
+        if (this.taskBackground == null) {
+            this.taskBackground = MyDoBackground_.getInstance_(this);
+        }
         restoreSavedInstanceState_(savedInstanceState);
 
     }
@@ -85,7 +101,27 @@ public final class MainActivity_
         this.toolbar = ((Toolbar) hasViews.findViewById(R.id.toolbar_layout));
         this.drawer = ((DrawerLayout) hasViews.findViewById(R.id.drawer_layout));
         this.navigationView = ((NavigationView) hasViews.findViewById(R.id.navigation_view));
+        this.email = ((TextView) hasViews.findViewById(R.id.text_view_email));
+        this.name = ((TextView) hasViews.findViewById(R.id.text_view_name));
+        this.avatar = ((ImageView) hasViews.findViewById(R.id.imageView));
         setupViews();
+    }
+
+    @Override
+    public Object getLastCustomNonConfigurationInstance() {
+        MainActivity_.NonConfigurationInstancesHolder nonConfigurationInstance = ((MainActivity_.NonConfigurationInstancesHolder) super.getLastCustomNonConfigurationInstance());
+        if (nonConfigurationInstance == null) {
+            return null;
+        }
+        return nonConfigurationInstance.superNonConfigurationInstance;
+    }
+
+    @Override
+    public MainActivity_.NonConfigurationInstancesHolder onRetainCustomNonConfigurationInstance() {
+        MainActivity_.NonConfigurationInstancesHolder nonConfigurationInstanceState_ = new MainActivity_.NonConfigurationInstancesHolder();
+        nonConfigurationInstanceState_.superNonConfigurationInstance = super.onRetainCustomNonConfigurationInstance();
+        nonConfigurationInstanceState_.taskBackground = taskBackground;
+        return nonConfigurationInstanceState_;
     }
 
     @Override
@@ -139,5 +175,10 @@ public final class MainActivity_
             }
             return new PostActivityStarter(context);
         }
+    }
+
+    private static class NonConfigurationInstancesHolder {
+        public MyDoBackground taskBackground;
+        public Object superNonConfigurationInstance;
     }
 }

@@ -3,7 +3,10 @@ package com.loftschool.moneytracker.rest;
 
 import android.support.annotation.NonNull;
 
+import com.loftschool.moneytracker.rest.models.CheckGoogleTokenModel;
+import com.loftschool.moneytracker.rest.models.GoogleLoginUserModel;
 import com.loftschool.moneytracker.rest.models.UserLoginModel;
+import com.loftschool.moneytracker.rest.models.UserLogoutModel;
 import com.loftschool.moneytracker.rest.models.UserRegistrationModel;
 
 import java.io.IOException;
@@ -33,6 +36,30 @@ public final class RestService {
         return restClient
                 .getLoftSchoolAPI()
                 .login(login, password)
+                .execute()
+                .body();
+    }
+
+    public UserLogoutModel logoutUser() throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .logout()
+                .execute()
+                .body();
+    }
+
+    public CheckGoogleTokenModel checkGoogleToken(@NonNull String token) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .checkGoogleToken(token)
+                .execute()
+                .body();
+    }
+
+    public GoogleLoginUserModel googleLoginUser(@NonNull String token) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .getUser(token)
                 .execute()
                 .body();
     }

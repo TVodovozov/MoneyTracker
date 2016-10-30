@@ -75,5 +75,4 @@
             android:text="@string/registration_btn_canсel"
             android:id="@+id/registration_btn_canсel"/>
     </LinearLayout>
-
 </RelativeLayout>

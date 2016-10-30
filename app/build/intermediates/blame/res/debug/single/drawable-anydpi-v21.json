@@ -12,11 +12,11 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_category.xml"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_statistics.xml",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_statistics.xml"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_cart.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_cart.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_statistics.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_statistics.xml"
     }
 ]

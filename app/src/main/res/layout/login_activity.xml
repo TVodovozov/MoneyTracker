@@ -80,10 +80,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/LinearLayout_root_btn"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout_new_registration">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,4 +91,11 @@
             android:id="@+id/auth_btn_new_registration"/>
     </LinearLayout>
 
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/linear_layout_new_registration"
+        android:layout_marginTop="20dp"
+        android:id="@+id/sign_in_button" />
 </RelativeLayout>

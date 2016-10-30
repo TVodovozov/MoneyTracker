@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (MoneyTrackerApplication.getAuthToken().equals("")) {
+                if ((MoneyTrackerApplication.getGoogleAuthToken().equals(""))&&(MoneyTrackerApplication.getAuthToken().equals(""))) {
                     startActivity(new Intent(SplashScreenActivity.this, LoginActivity_.class));
                     finish();
                 } else {
