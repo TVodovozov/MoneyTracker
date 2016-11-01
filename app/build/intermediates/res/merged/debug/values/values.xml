@@ -582,6 +582,12 @@
     <string name="add_expenses_activity">Hello!</string>
     <string name="app_name">MoneyTracker</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="auth_btn_new_registration">Регистрация нового пользователя</string>
+    <string name="auth_btn_registration_ok">OK</string>
+    <string name="auth_server_status_error">Произошла ошибка сервера</string>
+    <string name="auth_server_status_wrong_login_error">Не правильно введен login</string>
+    <string name="auth_server_status_wrong_password_error">Не правильно введен пароль</string>
+    <string name="auth_title">Аутентификация</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="category_snackbar_massage">Это snackbar</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
@@ -614,7 +620,6 @@
     <string name="registration_text_error_login">Поле Login пустое</string>
     <string name="registration_text_error_password">Поле Пароль пустое</string>
     <string name="registration_title">Регистрация</string>
-    <string name="registration_toolbar_title">Регистрация</string>
     <string name="search_menu_title">Search</string>
     <string name="search_title">Поиск</string>
     <string name="status_bar_notification_info_overflow">999+</string>

@@ -12,7 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
@@ -58,8 +62,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         fragmentManager.addOnBackStackChangedListener(this);
         replaceFragment(new ExpensesFragment_());
 
-        if(CategoryEntity.selectAll().size() == 0){
-            generateCategory();}
+        if (CategoryEntity.selectAll().size() == 0) {
+            generateCategory();
+        }
     }
 
     public void generateCategory() {
@@ -81,28 +86,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         categoryEntity = new CategoryEntity();
         categoryEntity.setName("Иное");
         categoryEntity.save();
-    }
-
-    private void setDrawerLayout() {
-        onNavigationItemSelected();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,
-                drawer,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
-        toggle.syncState();
-        drawer.addDrawerListener(toggle);
-        if (toolbarTitle != null)
-            setTitle(toolbarTitle);
-    }
-
-    private void setActionBar() {
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     public void onBackPressed() {
@@ -138,6 +121,38 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
     }
 
+    private void setDrawerLayout() {
+        onNavigationItemSelected();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,
+                drawer,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+        toggle.syncState();
+        drawer.addDrawerListener(toggle);
+        if (toolbarTitle != null)
+            setTitle(toolbarTitle);
+
+        View headerView = navigationView.getHeaderView(0);
+        ImageView avatar = (ImageView) headerView.findViewById(R.id.imageView);
+
+        Glide
+                .with(this)
+                .load(R.mipmap.logo)
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .into(avatar);
+    }
+
+    private void setActionBar() {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
     private boolean onNavigationItemSelected() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -164,10 +179,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 }
                 return true;
             }
-            });
+        });
         return true;
     }
-
 
 
     private void replaceFragment(Fragment fragment) {
@@ -184,10 +198,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
         }
     }
-/*    private void setFragmentManager() {
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.addOnBackStackChangedListener(this);
-            }*/
 
     private void setToolbarTitle(String backStackEntryName) {
         if (backStackEntryName.equals(ExpensesFragment_.class.getName())) {

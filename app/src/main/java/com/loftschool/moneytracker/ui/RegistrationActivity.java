@@ -52,6 +52,7 @@ public class RegistrationActivity extends AppCompatActivity {
     void onRegistrationCancelClick() {
         finish();
     }
+
     @Click(R.id.registration_btn_registration)
     void registerUser() {
 
@@ -76,6 +77,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     Snackbar.LENGTH_SHORT).show();
         }
     }
+
     @Background
     void register(String login, String password) {
         RestService restService = new RestService();
@@ -99,24 +101,28 @@ public class RegistrationActivity extends AppCompatActivity {
     void navigateToMainScreen() {
         startActivity(new Intent(this, MainActivity_.class));
     }
+
     @UiThread
     void showLoginBusy() {
         Snackbar.make(registrationLayout,
                 getString(R.string.registration_server_status_busy_login_error),
                 Snackbar.LENGTH_SHORT).show();
     }
+
     @UiThread
     void showUnknownError() {
         Snackbar.make(registrationLayout,
                 getString(R.string.registration_server_other_error),
                 Snackbar.LENGTH_SHORT).show();
     }
+
     @UiThread
     void showRegistrationErrorLogin() {
         Snackbar.make(registrationLayout,
                 getString(R.string.registration_text_error_login),
                 Snackbar.LENGTH_LONG).show();
     }
+
     @UiThread
     void showRegistrationErrorPassword() {
         Snackbar.make(registrationLayout,

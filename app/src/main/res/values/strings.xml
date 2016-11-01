@@ -43,7 +43,14 @@
     <string name="registration_internet_error">Нет интернет соединения</string>
     <string name="registration_server_status_busy_login_error">Login занят, введите другой login</string>
     <string name="registration_server_other_error">Произошла неизвестная ошибка</string>
-    <string name="registration_toolbar_title">Регистрация</string>
+
+    <string name="auth_title">Аутентификация</string>
+    <string name="auth_btn_registration_ok">OK</string>
+    <string name="auth_btn_new_registration">Регистрация нового пользователя</string>
+    <string name="auth_server_status_wrong_login_error">Не правильно введен login</string>
+    <string name="auth_server_status_wrong_password_error">Не правильно введен пароль</string>
+    <string name="auth_server_status_error">Произошла ошибка сервера</string>
+
 
     <string-array name="categories">
         <item>Выберите категорию</item>

@@ -25,6 +25,15 @@
         </activity>
 
         <activity
+            android:name=".ui.LoginActivity_"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.LOGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".ui.RegistrationActivity_"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -43,11 +52,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.AddExpenseActivity_"
+        <activity
+            android:name=".ui.AddExpenseActivity_"
             android:parentActivityName=".ui.MainActivity_"
             android:theme="@style/AppTheme.NoActionBar"/>
-
-
 
     </application>
 

@@ -15,21 +15,26 @@ public final class RestService {
 
     private RestClient restClient;
 
-    public RestService(){
+    public RestService() {
         restClient = new RestClient();
     }
 
     public UserRegistrationModel register(@NonNull String login,
-                                                @NonNull String password) throws IOException {
+                                          @NonNull String password) throws IOException {
 
         return restClient.getLoftSchoolAPI()
-                .registerUser(login, password, REGISTER_FLAG).execute().body();
+                .registerUser(login, password, REGISTER_FLAG)
+                .execute()
+                .body();
     }
 
     public UserLoginModel login(@NonNull String login,
-                                      @NonNull String password) throws IOException {
-        return restClient.getLoftSchoolAPI()
-                .login(login, password).execute().body();
+                                @NonNull String password) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .login(login, password)
+                .execute()
+                .body();
     }
 
 

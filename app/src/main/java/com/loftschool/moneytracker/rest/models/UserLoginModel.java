@@ -27,7 +27,6 @@ public class UserLoginModel {
     public void setId(int id) {
         this.id = id;
     }
-
     public String getAuthToken() {
         return authToken;
     }

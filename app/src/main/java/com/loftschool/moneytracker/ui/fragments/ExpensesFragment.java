@@ -2,8 +2,6 @@ package com.loftschool.moneytracker.ui.fragments;
 
 
 import android.content.Intent;
-
-import android.icu.text.Replaceable;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -41,7 +39,7 @@ import java.util.List;
 public class ExpensesFragment extends Fragment {
 
     private static final int LOADER_ID = 0;
-    private static final String LOG_TAG = ExpensesFragment.class.getSimpleName();
+    private static final String LOG_TAG = ExpensesFragment_.class.getSimpleName();
     final String SEARCH_QUERY_ID = "search_query_id";
     SearchView searchView;
 
