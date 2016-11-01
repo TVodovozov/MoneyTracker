@@ -1,4 +1,4 @@
-#Sun Oct 30 01:16:03 MSK 2016
+#Sun Oct 30 23:49:06 MSK 2016
 base.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=D\:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

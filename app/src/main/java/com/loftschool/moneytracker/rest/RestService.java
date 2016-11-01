@@ -3,7 +3,10 @@ package com.loftschool.moneytracker.rest;
 
 import android.support.annotation.NonNull;
 
+import com.loftschool.moneytracker.rest.models.Category.AddCategoryModel;
+import com.loftschool.moneytracker.rest.models.Category.UserSyncCategoriesModel;
 import com.loftschool.moneytracker.rest.models.CheckGoogleTokenModel;
+import com.loftschool.moneytracker.rest.models.Expenses.UserSyncExpensesModel;
 import com.loftschool.moneytracker.rest.models.GoogleLoginUserModel;
 import com.loftschool.moneytracker.rest.models.UserLoginModel;
 import com.loftschool.moneytracker.rest.models.UserLogoutModel;
@@ -64,5 +67,46 @@ public final class RestService {
                 .body();
     }
 
+    public UserSyncCategoriesModel syncCategories(@NonNull String data,
+                                                  @NonNull String token,
+                                                  @NonNull String googleToken) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .syncCategories(data, token, googleToken)
+                .execute()
+                .body();
 
+    }
+
+    public UserSyncExpensesModel syncExpenses(@NonNull String data,
+                                              @NonNull String token,
+                                              @NonNull String googleToken) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .syncExpenses(data, token, googleToken)
+                .execute()
+                .body();
+
+    }
+
+    public UserSyncCategoriesModel getCategories(@NonNull String token,
+                                                 @NonNull String googleToken) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .getCategories(token, googleToken)
+                .execute()
+                .body();
+
+    }
+
+    public AddCategoryModel addCategory(@NonNull String title,
+                                        @NonNull String token,
+                                        @NonNull String googleToken) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .addCategory(title, token, googleToken)
+                .execute()
+                .body();
+
+    }
 }

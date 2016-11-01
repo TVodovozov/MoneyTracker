@@ -15,6 +15,10 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.rest.RestService;
+import com.loftschool.moneytracker.rest.models.Category.CategoryModel;
+import com.loftschool.moneytracker.rest.models.Category.UserSyncCategoriesModel;
+import com.loftschool.moneytracker.rest.models.Expenses.ExpenseModel;
+import com.loftschool.moneytracker.rest.models.Expenses.UserSyncExpensesModel;
 import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.storege.entities.ExpensesEntity;
 import com.loftschool.moneytracker.ui.MoneyTrackerApplication;
@@ -34,50 +38,46 @@ public class TrackerSyncAdapter extends AbstractThreadedSyncAdapter {
         super(context, autoInitialize);
     }
 
-    //тут написать запросы
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority,
                               ContentProviderClient provider, SyncResult syncResult) {
-        Log.d(LOG_TAG, "Syncing started");
-        /*syncCategories();
-        syncExpenses();*/
+        syncCategories();
+        syncExpenses();
     }
 
-   /* public void syncCategories() {
-        RestService restService = new RestService(); //там все связывается и реализуется
+    public void syncCategories() {
+        RestService restService = new RestService();
 
         try {
             String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
             String token = MoneyTrackerApplication.getAuthToken();
             List<CategoryModel> categories = new ArrayList<>();
-            int t = CategoryEntity.selectAll("").size();
-            for (int i = 1; i <= t; i++) {
+            int j = CategoryEntity.selectAll().size();
+
+            for (int i = 1; i <= j; i++) {
                 CategoryEntity categoryEntity = CategoryEntity.selectById(i);
                 String title = categoryEntity.getName();
                 CategoryModel categoryModel = new CategoryModel();
                 categoryModel.setId(i);
                 categoryModel.setTitle(title);
                 categories.add(categoryModel);
-
             }
+
             String data = new Gson().toJson(categories);
-            UserSyncCategoriesModel categoriesSyncModel = restService.syncCategories(data, token, googleToken);//Синхронный запрос
-            Log.d("Syncing", "Sync categories: " + categoriesSyncModel.getStatus());
+            UserSyncCategoriesModel categoriesSyncModel = restService.syncCategories(data, token, googleToken);
+            Log.d(LOG_TAG, categoriesSyncModel.getStatus());
         } catch (IOException e) {
-//Если запрос не выполнен – сообщаем пользователя об ошибке
             e.printStackTrace();
-            //тут показывать низвесную ошибка
         }
     }
 
-
     public void syncExpenses() {
-        RestService restService = new RestService(); //там все связывается и реализуется
+        RestService restService = new RestService();
 
         try {
             String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
             String token = MoneyTrackerApplication.getAuthToken();
-            List<ExpensesModel> expenses = new ArrayList<>();//создаем лист трат
+            List<ExpenseModel> expenses = new ArrayList<>();
             int t = ExpensesEntity.selectAll("").size();
             for (int i = 1; i <= t; i++) {
                 ExpensesEntity expenseEntity = ExpensesEntity.selectById(i);
@@ -87,25 +87,22 @@ public class TrackerSyncAdapter extends AbstractThreadedSyncAdapter {
                 CategoryEntity categoryEntity = expenseEntity.getCategory();
                 int categoryId = (int) (long) categoryEntity.getId();
 
-                ExpensesModel expenseModel = new ExpensesModel();//создаем экземпляр модели
+                ExpenseModel expenseModel = new ExpenseModel();
                 expenseModel.setId(i);
                 expenseModel.setComment(comment);
                 expenseModel.setSum(sum);
                 expenseModel.setTrDate(date);
                 expenseModel.setCategoryId(categoryId);
-                expenses.add(expenseModel);// заносим этот экземпляр в лист
+                expenses.add(expenseModel);
 
             }
-            String data = new Gson().toJson(expenses);//лист приводим к типу json
-            UserSyncExpensesModel expensesSyncModel = restService.syncExpenses(data, token, googleToken);//Синхронный запрос
-            Log.d("Syncing", "Sync expenses: " + expensesSyncModel.getStatus());
+            String data = new Gson().toJson(expenses);
+            UserSyncExpensesModel expensesSyncModel = restService.syncExpenses(data, token, googleToken);
+            Log.d(LOG_TAG, expensesSyncModel.getStatus());
         } catch (IOException e) {
-//Если запрос не выполнен – сообщаем пользователя об ошибке
             e.printStackTrace();
-            //тут показывать низвесную ошибка
         }
-    }*/
-
+    }
 
     public static void syncImmediately(Context context) {
         Bundle bundle = new Bundle();

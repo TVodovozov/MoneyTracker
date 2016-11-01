@@ -24,7 +24,7 @@ import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
 import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
-import com.loftschool.moneytracker.utils.MyDoBackground;
+import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
@@ -48,12 +48,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     DrawerLayout drawer;
     @ViewById(R.id.navigation_view)
     NavigationView navigationView;
-    @ViewById(R.id.text_view_email)
-    TextView email;
-    @ViewById(R.id.text_view_name)
-    TextView name;
-    @ViewById(R.id.imageView)
-    ImageView avatar;
     @StringRes(R.string.menu_buy)
     String expensesTitle;
     @StringRes(R.string.menu_category)
@@ -69,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
 
     @NonConfigurationInstance
     @Bean
-    MyDoBackground taskBackground;
+    CheckStatusBackground taskBackground;
 
     @AfterViews
     void setupViews() {
@@ -79,32 +73,9 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         fragmentManager.addOnBackStackChangedListener(this);
         replaceFragment(new ExpensesFragment_());
 
-        if (CategoryEntity.selectAll().size() == 0) {
-            generateCategory();
-        }
         taskBackground.checkGoogleTokenStatus();
+        taskBackground.checkUserCategories();
 
-    }
-
-    public void generateCategory() {
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Развлечения");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Продукты");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Кафе");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Образование");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Лекарства");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Иное");
-        categoryEntity.save();
     }
 
     public void onBackPressed() {
@@ -150,19 +121,24 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 R.string.navigation_drawer_close);
         toggle.syncState();
         drawer.addDrawerListener(toggle);
+        View headerView = navigationView.getHeaderView(0);
         if (toolbarTitle != null)
             setTitle(toolbarTitle);
 
-        /*name.setText(MoneyTrackerApplication.getName());
-        email.setText(MoneyTrackerApplication.getEmail());*/
+
+        TextView email = (TextView) headerView.findViewById(R.id.text_view_email);
+        email.setText(MoneyTrackerApplication.getEmail());
+        TextView name = (TextView) headerView.findViewById(R.id.text_view_name);
+        name.setText(MoneyTrackerApplication.getName());
+        ImageView avatar = (ImageView) headerView.findViewById(R.id.imageView);
         String url = MoneyTrackerApplication.getPicture();
 
         Glide
                 .with(this)
                 .load(url)
                 .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
-             //   .into(avatar);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .into(avatar);
     }
 
     private void setActionBar() {
