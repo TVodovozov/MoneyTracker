@@ -18,8 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import com.loftschool.moneytracker.R;
-import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground;
-import com.loftschool.moneytracker.backgroundTasks.CheckGoogleStatusBackground_;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.builder.PostActivityStarter;
 import org.androidannotations.api.view.HasViews;
@@ -38,7 +36,6 @@ public final class MainActivity_
         init_(savedInstanceState);
         super.onCreate(savedInstanceState);
         OnViewChangedNotifier.replaceNotifier(previousNotifier);
-        setContentView(R.layout.activity_main);
     }
 
     private void init_(Bundle savedInstanceState) {
@@ -48,18 +45,7 @@ public final class MainActivity_
         this.categoriesTitle = resources_.getString(R.string.menu_category);
         this.statisticsTitle = resources_.getString(R.string.menu_statistics);
         this.settingsTitle = resources_.getString(R.string.menu_settings);
-        MainActivity_.NonConfigurationInstancesHolder nonConfigurationInstance = ((MainActivity_.NonConfigurationInstancesHolder) super.getLastCustomNonConfigurationInstance());
-        if (nonConfigurationInstance!= null) {
-            taskBackground = nonConfigurationInstance.taskBackground;
-            ((CheckGoogleStatusBackground_) taskBackground).rebind(this);
-        }
         this.quitUser = LogoutUser_.getInstance_(this);
-        if (this.taskBackground == null) {
-            this.taskBackground = CheckGoogleStatusBackground_.getInstance_(this);
-        }
-        if (this.taskBackground == null) {
-            this.taskBackground = CheckGoogleStatusBackground_.getInstance_(this);
-        }
         restoreSavedInstanceState_(savedInstanceState);
 
     }
@@ -100,23 +86,6 @@ public final class MainActivity_
         this.drawer = ((DrawerLayout) hasViews.findViewById(R.id.drawer_layout));
         this.navigationView = ((NavigationView) hasViews.findViewById(R.id.navigation_view));
         setupViews();
-    }
-
-    @Override
-    public Object getLastCustomNonConfigurationInstance() {
-        MainActivity_.NonConfigurationInstancesHolder nonConfigurationInstance = ((MainActivity_.NonConfigurationInstancesHolder) super.getLastCustomNonConfigurationInstance());
-        if (nonConfigurationInstance == null) {
-            return null;
-        }
-        return nonConfigurationInstance.superNonConfigurationInstance;
-    }
-
-    @Override
-    public MainActivity_.NonConfigurationInstancesHolder onRetainCustomNonConfigurationInstance() {
-        MainActivity_.NonConfigurationInstancesHolder nonConfigurationInstanceState_ = new MainActivity_.NonConfigurationInstancesHolder();
-        nonConfigurationInstanceState_.superNonConfigurationInstance = super.onRetainCustomNonConfigurationInstance();
-        nonConfigurationInstanceState_.taskBackground = taskBackground;
-        return nonConfigurationInstanceState_;
     }
 
     @Override
@@ -170,10 +139,5 @@ public final class MainActivity_
             }
             return new PostActivityStarter(context);
         }
-    }
-
-    private static class NonConfigurationInstancesHolder {
-        public CheckStatusBackground taskBackground;
-        public Object superNonConfigurationInstance;
     }
 }

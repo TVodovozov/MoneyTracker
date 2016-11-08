@@ -9,7 +9,7 @@ public class ExpenseModel {
     private int id;
 
     @SerializedName("category_id")
-    private int categoryId;
+    private long categoryId;
 
     @SerializedName("comment")
     private String comment;
@@ -28,11 +28,11 @@ public class ExpenseModel {
         this.id = id;
     }
 
-    public int getCategoryId() {
+    public long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
 

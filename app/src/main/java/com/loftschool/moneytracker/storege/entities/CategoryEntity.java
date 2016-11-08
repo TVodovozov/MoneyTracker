@@ -35,7 +35,7 @@ public class CategoryEntity extends Model {
         return getMany(ExpensesEntity.class, "category");
     }
 
-    public static List<CategoryEntity> selectAll() {
+    public static List<CategoryEntity> selectAll(String query) {
         return new Select()
                 .from(CategoryEntity.class)
                 .execute();

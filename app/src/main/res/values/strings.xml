@@ -54,6 +54,12 @@
     <string name="auth_server_status_wrong_login_error">Не правильно введен login</string>
     <string name="auth_server_status_wrong_password_error">Не правильно введен пароль</string>
     <string name="auth_server_status_error">Произошла ошибка сервера</string>
+    <string name="auth_server_google_error">Вы не вошли с помощью Google+</string>
+
+    <string name="contextual_action_bar_delete">Удалить</string>
+    <string name="dialog_window_btn_ok">Ok</string>
+    <string name="dialog_window_btn_cancel">Отмена</string>
+    <string name="add_new_category">Введите название категории</string>
 
 
     <string-array name="categories">

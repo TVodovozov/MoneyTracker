@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import com.loftschool.moneytracker.rest.models.Category.AddCategoryModel;
 import com.loftschool.moneytracker.rest.models.Category.UserSyncCategoriesModel;
 import com.loftschool.moneytracker.rest.models.CheckGoogleTokenModel;
+import com.loftschool.moneytracker.rest.models.Expenses.AddExpensesModel;
 import com.loftschool.moneytracker.rest.models.Expenses.UserSyncExpensesModel;
 import com.loftschool.moneytracker.rest.models.GoogleLoginUserModel;
 import com.loftschool.moneytracker.rest.models.UserLoginModel;
@@ -89,11 +90,21 @@ public final class RestService {
 
     }
 
-    public UserSyncCategoriesModel getCategories(@NonNull String token,
-                                                 @NonNull String googleToken) throws IOException {
+    public UserSyncCategoriesModel postCategories(@NonNull String token,
+                                                  @NonNull String googleToken) throws IOException {
         return restClient
                 .getLoftSchoolAPI()
-                .getCategories(token, googleToken)
+                .postCategories(token, googleToken)
+                .execute()
+                .body();
+
+    }
+
+    public UserSyncExpensesModel postExpenses(@NonNull String token,
+                                              @NonNull String googleToken) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .postExpenses(token, googleToken)
                 .execute()
                 .body();
 
@@ -108,5 +119,18 @@ public final class RestService {
                 .execute()
                 .body();
 
+    }
+
+    public AddExpensesModel addExpenses(@NonNull String sum,
+                                        @NonNull String comment,
+                                        @NonNull int categoryId,
+                                        @NonNull String date,
+                                        @NonNull String token,
+                                        @NonNull String googleToken) throws IOException {
+        return restClient
+                .getLoftSchoolAPI()
+                .addExpenses(sum, comment, categoryId, date, token, googleToken)
+                .execute()
+                .body();
     }
 }

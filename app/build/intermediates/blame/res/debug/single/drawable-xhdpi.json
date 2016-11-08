@@ -16,12 +16,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable-xhdpi\\ic_media_route_on_2_mono_dark.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_category.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_category.png"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_media_route_off_mono_dark.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable-xhdpi\\ic_media_route_off_mono_dark.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_category.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_category.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\common_plus_signin_btn_text_dark_focused.9.png",

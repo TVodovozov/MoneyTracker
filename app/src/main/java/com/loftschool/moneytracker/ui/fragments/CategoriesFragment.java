@@ -1,7 +1,11 @@
 package com.loftschool.moneytracker.ui.fragments;
 
 
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,20 +13,32 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.activeandroid.query.Select;
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground;
 import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.adapter.CategoriesAdapter;
+import com.loftschool.moneytracker.ui.adapter.ClickListener;
 
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.OptionsMenu;
@@ -32,31 +48,81 @@ import org.androidannotations.api.BackgroundExecutor;
 
 import java.util.List;
 
-@EFragment (R.layout.categories_fragment)
-@OptionsMenu (R.menu.menu_search)
-public class CategoriesFragment extends Fragment {
+@EFragment(R.layout.categories_fragment)
+@OptionsMenu(R.menu.menu_search)
+public class CategoriesFragment extends Fragment implements View.OnClickListener {
 
     private static final int LOADER_ID = 0;
     private static final String SEARCH_QUERY_ID = "search_query_id";
+    private CategoriesAdapter categoriesAdapter;
+    private ActionMode actionMode;
+    private ActionModeCallback actionModeCallback = new ActionModeCallback();
     SearchView searchView;
+
+
+    @Bean
+    CheckStatusBackground checkStatusBackground;
 
     @ViewById(R.id.categories_fragment_root_layout)
     CoordinatorLayout rootLayout;
-    @ViewById (R.id.list_of_categories)
+    @ViewById(R.id.list_of_categories)
     RecyclerView recyclerView;
-    @ViewById (R.id.categories_fab)
+    @ViewById(R.id.categories_fab)
     FloatingActionButton fab;
-    @OptionsMenuItem (R.id.search_action)
+    @OptionsMenuItem(R.id.search_action)
     MenuItem menuItem;
 
-    @Click (R.id.categories_fab)
-    void fabCategoriesOnClickListener (){
-        fab.setOnClickListener(new View.OnClickListener() {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.categories_fragment, container, false);
+        rootLayout = (CoordinatorLayout) rootView.findViewById(R.id.categories_fragment_root_layout);
+        fab = ((FloatingActionButton) rootView.findViewById(R.id.categories_fab));
+        fab.setOnClickListener(this);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.list_of_categories);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return rootView;
+    }
+
+    public void onClick(View v) {
+
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.dialog_window);
+        TextView textView = (TextView) dialog.findViewById(R.id.dialog_window_title);
+        final EditText editText = (EditText) dialog.findViewById(R.id.dialog_window_edit_text);
+        Button okButton = (Button) dialog.findViewById(R.id.dialog_window_btn_ok);
+        Button cancelButton = (Button) dialog.findViewById(R.id.dialog_window_btn_cancel);
+        textView.setText(getString(R.string.add_new_category));
+        okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(rootLayout, R.string.category_snackbar_massage, Snackbar.LENGTH_LONG).show();
+                Editable text = editText.getText();
+                if (!TextUtils.isEmpty(text)) {
+                    CategoryEntity categoryEntity = new CategoryEntity();
+                    String name = editText.getText().toString();
+                    categoryEntity.setName(name);
+                    categoryEntity.save();
+                    loadCategory("");
+                    checkStatusBackground.addCategory(name);
+                    dialog.dismiss();
+                }
             }
         });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    @Background(delay = 600, id = SEARCH_QUERY_ID)
+    public void queryCategory(String query) {
+        loadCategory(query);
     }
 
     @Override
@@ -67,7 +133,6 @@ public class CategoriesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -76,6 +141,7 @@ public class CategoriesFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                loadCategory(query);
                 return false;
             }
 
@@ -88,19 +154,14 @@ public class CategoriesFragment extends Fragment {
         });
     }
 
-    @Background(delay = 600, id = SEARCH_QUERY_ID)
-    public void queryCategory (String query){
-        loadCategory(query);
-    }
-
-    private void loadCategory(final String query){
+    private void loadCategory(final String query) {
         getLoaderManager().restartLoader(LOADER_ID, null, new LoaderManager.LoaderCallbacks<List<CategoryEntity>>() {
             @Override
             public Loader<List<CategoryEntity>> onCreateLoader(int id, Bundle args) {
                 final AsyncTaskLoader<List<CategoryEntity>> loader = new AsyncTaskLoader<List<CategoryEntity>>(getActivity()) {
                     @Override
                     public List<CategoryEntity> loadInBackground() {
-                        return getSelectAll(query);
+                        return CategoryEntity.selectAll(query);
                     }
                 };
                 loader.forceLoad();
@@ -109,7 +170,25 @@ public class CategoriesFragment extends Fragment {
 
             @Override
             public void onLoadFinished(Loader<List<CategoryEntity>> loader, List<CategoryEntity> data) {
-                recyclerView.setAdapter(new CategoriesAdapter(data));
+                categoriesAdapter = new CategoriesAdapter(data, new ClickListener() {
+                    @Override
+                    public void onItemClicked(int position) {
+                        if (actionMode != null) {
+                            toggleSelection(position);
+                        }
+                    }
+
+                    @Override
+                    public boolean onItemLongClicked(int position) {
+                        if (actionMode == null) {
+                            AppCompatActivity activity = (AppCompatActivity) getActivity();
+                            actionMode = activity.startSupportActionMode(actionModeCallback);
+                        }
+                        toggleSelection(position);
+                        return true;
+                    }
+                });
+                recyclerView.setAdapter(categoriesAdapter);
             }
 
             @Override
@@ -118,13 +197,49 @@ public class CategoriesFragment extends Fragment {
             }
         });
     }
-    private List<CategoryEntity> getSelectAll (String query){
-        return new Select()
-                .from(CategoryEntity.class)
-                .where("Name LIKE ?", new String[]{'%' + query + '%'})
-                .execute();
+
+    private void toggleSelection(int position) {
+        categoriesAdapter.toggleSelection(position);
+        int count = categoriesAdapter.getSelectedItemCount();
+        if (count == 0) {
+            actionMode.finish();
+        } else {
+            actionMode.setTitle(String.valueOf(count));
+            actionMode.invalidate();
+        }
     }
 
+    private class ActionModeCallback implements ActionMode.Callback {
+
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            mode.getMenuInflater().inflate(R.menu.contextual_action_bar, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_remove:
+                    categoriesAdapter.removeItems(categoriesAdapter.getSelectedItems());
+                    mode.finish();
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            categoriesAdapter.clearSelection();
+            actionMode = null;
+        }
+    }
 }
 
 

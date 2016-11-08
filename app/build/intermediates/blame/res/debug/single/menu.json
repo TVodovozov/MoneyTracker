@@ -4,6 +4,10 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\menu\\contextual_action_bar.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\menu\\contextual_action_bar.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_search.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\menu\\menu_search.xml"
     },

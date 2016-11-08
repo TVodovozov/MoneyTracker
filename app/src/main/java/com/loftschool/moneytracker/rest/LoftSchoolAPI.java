@@ -3,6 +3,7 @@ package com.loftschool.moneytracker.rest;
 import com.loftschool.moneytracker.rest.models.Category.AddCategoryModel;
 import com.loftschool.moneytracker.rest.models.Category.UserSyncCategoriesModel;
 import com.loftschool.moneytracker.rest.models.CheckGoogleTokenModel;
+import com.loftschool.moneytracker.rest.models.Expenses.AddExpensesModel;
 import com.loftschool.moneytracker.rest.models.Expenses.UserSyncExpensesModel;
 import com.loftschool.moneytracker.rest.models.GoogleLoginUserModel;
 import com.loftschool.moneytracker.rest.models.UserLoginModel;
@@ -40,6 +41,14 @@ public interface LoftSchoolAPI {
                                        @Query("auth_token") String token,
                                        @Query("google_token") String googleToken);
 
+    @GET("transactions/add")
+    Call<AddExpensesModel> addExpenses(@Query("sum") String sum,
+                                       @Query("comment") String comment,
+                                       @Query("category_id") int categoryId,
+                                       @Query("tr_date") String date,
+                                       @Query("auth_token") String token,
+                                       @Query("google_token") String googleToken);
+
 
     @POST("/categories/synch")
     Call<UserSyncCategoriesModel> syncCategories(@Query("data") String data,
@@ -53,7 +62,12 @@ public interface LoftSchoolAPI {
                                              @Query("google_token") String googleToken);
 
     @POST("/categories/")
-    Call<UserSyncCategoriesModel> getCategories(@ Query("auth_token") String token,
-                                                @Query("google_token") String googleToken);
+    Call<UserSyncCategoriesModel> postCategories(@Query("auth_token") String token,
+                                                 @Query("google_token") String googleToken);
+
+    @POST("/transactions/")
+    Call<UserSyncExpensesModel> postExpenses(@Query("auth_token") String token,
+                                             @Query("google_token") String googleToken);
+
 
 }

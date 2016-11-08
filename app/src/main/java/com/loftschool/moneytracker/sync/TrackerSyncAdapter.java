@@ -52,7 +52,7 @@ public class TrackerSyncAdapter extends AbstractThreadedSyncAdapter {
             String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
             String token = MoneyTrackerApplication.getAuthToken();
             List<CategoryModel> categories = new ArrayList<>();
-            int j = CategoryEntity.selectAll().size();
+            int j = CategoryEntity.selectAll("").size();
 
             for (int i = 1; i <= j; i++) {
                 CategoryEntity categoryEntity = CategoryEntity.selectById(i);

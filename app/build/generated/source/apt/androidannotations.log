@@ -1,0 +1,2 @@
+23:35:58.268 [Daemon worker Thread 7] ERROR o.a.i.p.ModelValidator:77 - org.androidannotations.annotations.EBean annotated element should have a constructor with one parameter max, of type android.content.Context
+23:35:58.308 [Daemon worker Thread 7] WARN  o.a.i.p.ModelValidator:88 - Element com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground invalidated by EBeanHandler

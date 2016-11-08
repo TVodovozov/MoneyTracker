@@ -1,5 +1,6 @@
 package com.loftschool.moneytracker.ui;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,21 +25,20 @@ import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
 import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
-import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.InstanceState;
-import org.androidannotations.annotations.NonConfigurationInstance;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringRes;
 
 
-@EActivity(R.layout.activity_main)
+@EActivity
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
 
-    private static final String LOG_TAG = MainActivity_.class.getSimpleName();
+    //private static final String LOG_TAG = MainActivity_.class.getSimpleName();
+    private static final String LOG_TAG = "MainLogs";
     private FragmentManager fragmentManager;
     private CategoryEntity categoryEntity;
 
@@ -61,21 +61,21 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     @Bean
     LogoutUser quitUser;
 
-    @NonConfigurationInstance
-    @Bean
-    CheckStatusBackground taskBackground;
-
     @AfterViews
     void setupViews() {
         setActionBar();
         setDrawerLayout();
         fragmentManager = getSupportFragmentManager();
         fragmentManager.addOnBackStackChangedListener(this);
-        replaceFragment(new ExpensesFragment_());
+    }
 
-        taskBackground.checkGoogleTokenStatus();
-        taskBackground.checkUserCategories();
-
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            replaceFragment(new ExpensesFragment_());
+        }
     }
 
     public void onBackPressed() {
@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         View headerView = navigationView.getHeaderView(0);
         if (toolbarTitle != null)
             setTitle(toolbarTitle);
-
 
         TextView email = (TextView) headerView.findViewById(R.id.text_view_email);
         email.setText(MoneyTrackerApplication.getEmail());
@@ -180,7 +179,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         return true;
     }
 
-
     private void replaceFragment(Fragment fragment) {
         String backStackName = fragment.getClass().getName();
 
@@ -192,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             transaction.addToBackStack(backStackName);
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             transaction.commit();
-
         }
     }
 
@@ -216,12 +213,5 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             toolbarTitle = statisticsTitle;
             navigationView.setCheckedItem(R.id.menu_settings);
         }
-
     }
-
 }
-
-
-
-
-

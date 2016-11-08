@@ -4,6 +4,7 @@ package com.loftschool.moneytracker.ui;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.appcompat.BuildConfig;
@@ -148,22 +149,26 @@ public class LoginActivity extends AppCompatActivity {
     @Background
     public void logInWithGoogle(Intent data) {
         String token = null;
-        final String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-        final String accountType = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
-        Account account = new Account(accountName, accountType);
-        try {
-            token = GoogleAuthUtil.getToken(this, account, ConstantsManager.SCOPES);
+        if (data != null) {
+            final String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+            final String accountType = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
+            Account account = new Account(accountName, accountType);
+            try {
+                token = GoogleAuthUtil.getToken(this, account, ConstantsManager.SCOPES);
 
-        } catch (UserRecoverableAuthException userAuthEx) {
-            startActivityForResult(userAuthEx.getIntent(), REQUEST_CODE);
-        } catch (IOException ioEx) {
-            ioEx.printStackTrace();
-        } catch (GoogleAuthException fatalAuthEx) {
-            fatalAuthEx.printStackTrace();
-        }
-        if (token != null) {
-            MoneyTrackerApplication.saveGoogleAuthToken(token);
-            navigateToMainScreen();
+            } catch (UserRecoverableAuthException userAuthEx) {
+                startActivityForResult(userAuthEx.getIntent(), REQUEST_CODE);
+            } catch (IOException ioEx) {
+                ioEx.printStackTrace();
+            } catch (GoogleAuthException fatalAuthEx) {
+                fatalAuthEx.printStackTrace();
+            }
+            if (token != null) {
+                MoneyTrackerApplication.saveGoogleAuthToken(token);
+                navigateToMainScreen();
+            }
+        } else if (data==null){
+            showGoogleError();
         }
     }
 
@@ -202,6 +207,13 @@ public class LoginActivity extends AppCompatActivity {
     void showUnknownError() {
         Snackbar.make(loginLayout,
                 getString(R.string.registration_server_other_error),
+                Snackbar.LENGTH_SHORT).show();
+    }
+
+    @UiThread
+    void showGoogleError() {
+        Snackbar.make(loginLayout,
+                getString(R.string.auth_server_google_error),
                 Snackbar.LENGTH_SHORT).show();
     }
 

@@ -32,12 +32,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_01_dark.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_media_route_on_01_dark.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_replay_30_grey600_36.png",
@@ -128,16 +128,16 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\quantum_ic_pause_white_24.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_play_circle_filled_white_36.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\quantum_ic_play_circle_filled_white_36.png"
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_connecting_00_dark.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_00_dark.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png"
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_play_circle_filled_white_36.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\quantum_ic_play_circle_filled_white_36.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_cast_grey.png",
@@ -196,12 +196,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\quantum_ic_replay_30_white_36.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_abc_scrubber_control_off_mtrl_alpha.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\cast_abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_11_dark.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_media_route_on_11_dark.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\cast_abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_09_light.png",
@@ -224,12 +224,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_cast_light.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_cast_connected_white_24.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\quantum_ic_cast_connected_white_24.png"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_connecting_11_light.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_11_light.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_cast_connected_white_24.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\quantum_ic_cast_connected_white_24.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_connecting_01_light.png",
@@ -256,12 +256,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_10_light.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_connecting_20_light.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_20_light.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.8.0\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_pause_grey600_48.png",
@@ -280,12 +280,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\drawable-xhdpi-v4\\cast_abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_cast_disabled_light.png",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_cast_disabled_light.png"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_cast_disabled_light.png",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xhdpi-v4\\ic_cast_disabled_light.png"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_cast_off_light.png",
