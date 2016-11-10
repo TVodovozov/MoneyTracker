@@ -10,6 +10,7 @@ package com.loftschool.moneytracker.ui.fragments;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -63,6 +64,7 @@ public final class CategoriesFragment_
         rootLayout = null;
         recyclerView = null;
         fab = null;
+        refreshLayout = null;
     }
 
     private void init_(Bundle savedInstanceState) {
@@ -86,6 +88,8 @@ public final class CategoriesFragment_
         this.rootLayout = ((CoordinatorLayout) hasViews.findViewById(R.id.categories_fragment_root_layout));
         this.recyclerView = ((RecyclerView) hasViews.findViewById(R.id.list_of_categories));
         this.fab = ((FloatingActionButton) hasViews.findViewById(R.id.categories_fab));
+        this.refreshLayout = ((SwipeRefreshLayout) hasViews.findViewById(R.id.category_refresh_layout));
+        LinearLayoutManager();
     }
 
     @Override

@@ -13,8 +13,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -37,6 +39,7 @@ import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.adapter.CategoriesAdapter;
 import com.loftschool.moneytracker.ui.adapter.ClickListener;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
@@ -69,22 +72,30 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
     RecyclerView recyclerView;
     @ViewById(R.id.categories_fab)
     FloatingActionButton fab;
+    @ViewById(R.id.category_refresh_layout)
+    SwipeRefreshLayout refreshLayout;
     @OptionsMenuItem(R.id.search_action)
     MenuItem menuItem;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.categories_fragment, container, false);
-        rootLayout = (CoordinatorLayout) rootView.findViewById(R.id.categories_fragment_root_layout);
-        fab = ((FloatingActionButton) rootView.findViewById(R.id.categories_fab));
+    @AfterViews
+    void LinearLayoutManager() {
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         fab.setOnClickListener(this);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.list_of_categories);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        return rootView;
+        RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
+        itemAnimator.setAddDuration(700);
+        itemAnimator.setRemoveDuration(700);
+        recyclerView.setItemAnimator(itemAnimator);
+
+        refreshLayout.setColorSchemeColors(new int[] {getResources().getColor(R.color.colorAccent)});
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadCategory("");
+            }
+        });
     }
 
     public void onClick(View v) {

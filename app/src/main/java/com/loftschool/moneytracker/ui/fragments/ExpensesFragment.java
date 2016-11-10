@@ -1,16 +1,18 @@
 package com.loftschool.moneytracker.ui.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.widget.SearchView;
 
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.storege.entities.ExpensesEntity;
 import com.loftschool.moneytracker.ui.AddExpenseActivity_;
 import com.loftschool.moneytracker.ui.adapter.ClickListener;
@@ -52,16 +55,31 @@ public class ExpensesFragment extends Fragment {
 
     @ViewById(R.id.expanse_fragment_root_layout)
     CoordinatorLayout rootLayout;
-    @ViewById(R.id.list_of_expanses)
+    @ViewById(R.id.list_of_expenses)
     RecyclerView recyclerView;
     @ViewById(R.id.expenses_fab)
     FloatingActionButton fab;
+    @ViewById(R.id.expense_refresh_layout)
+    SwipeRefreshLayout refreshLayout;
     @OptionsMenuItem(R.id.search_action)
     MenuItem menuItem;
 
     @AfterViews
     void LinearLayoutManager() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
+        itemAnimator.setAddDuration(700);
+        itemAnimator.setRemoveDuration(700);
+        recyclerView.setItemAnimator(itemAnimator);
+
+        refreshLayout.setColorSchemeColors(new int[]{getResources().getColor(R.color.colorAccent)});
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadExpenses("");
+            }
+        });
     }
 
     @Click(R.id.expenses_fab)
@@ -69,8 +87,14 @@ public class ExpensesFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AddExpenseActivity_.class);
-                startActivity(intent);
+                if (CategoryEntity.selectAll("").size() != 0) {
+                    AddExpenseActivity_.intent(getActivity()).start()
+                            .withAnimation(R.anim.enter_pull_in, R.anim.exit_fade_out);
+                } else {
+                    Snackbar.make(rootLayout,
+                            getString(R.string.expenses_toast_error),
+                            Snackbar.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -38,10 +38,11 @@ public class CategoryEntity extends Model {
     public static List<CategoryEntity> selectAll(String query) {
         return new Select()
                 .from(CategoryEntity.class)
+                .where("name LIKE?", new String[]{'%' + query + '%'})
                 .execute();
     }
 
-    public static CategoryEntity selectById(int query) {
+    public static CategoryEntity selectById(long query) {
         return new Select()
                 .from(CategoryEntity.class)
                 .where("id LIKE?", query)
