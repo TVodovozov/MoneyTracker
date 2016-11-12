@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\xml\\syncadapter.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\xml\\syncadapter.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\xml\\authenticator.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\xml\\authenticator.xml"
+    }
+]

@@ -19,7 +19,7 @@ public class CategoryEntity extends Model {
         this.name = name;
     }
 
-    public CategoryEntity (){
+    public CategoryEntity() {
         super();
     }
 
@@ -31,13 +31,20 @@ public class CategoryEntity extends Model {
         this.name = name;
     }
 
-    public List<ExpensesEntity> expenses(){
+    public List<ExpensesEntity> expenses() {
         return getMany(ExpensesEntity.class, "category");
     }
 
-    public static List<CategoryEntity> selectAll(){
+    public static List<CategoryEntity> selectAll(String query) {
         return new Select()
                 .from(CategoryEntity.class)
                 .execute();
+    }
+
+    public static CategoryEntity selectById(int query) {
+        return new Select()
+                .from(CategoryEntity.class)
+                .where("id LIKE?", query)
+                .executeSingle();
     }
 }

@@ -36,7 +36,6 @@ public final class MainActivity_
         init_(savedInstanceState);
         super.onCreate(savedInstanceState);
         OnViewChangedNotifier.replaceNotifier(previousNotifier);
-        setContentView(R.layout.activity_main);
     }
 
     private void init_(Bundle savedInstanceState) {
@@ -46,6 +45,7 @@ public final class MainActivity_
         this.categoriesTitle = resources_.getString(R.string.menu_category);
         this.statisticsTitle = resources_.getString(R.string.menu_statistics);
         this.settingsTitle = resources_.getString(R.string.menu_settings);
+        this.quitUser = LogoutUser_.getInstance_(this);
         restoreSavedInstanceState_(savedInstanceState);
 
     }

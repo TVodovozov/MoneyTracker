@@ -4,6 +4,22 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_controller_material_dialog_b.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\layout\\mr_media_route_controller_material_dialog_b.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_help_text.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\layout\\cast_help_text.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_intro_overlay.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\layout\\cast_intro_overlay.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_powered_by_google.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.4.0\\res\\layout\\place_autocomplete_item_powered_by_google.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_select_dialog_material.xml"
     },
@@ -44,12 +60,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\expenses_fragment.xml"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_popup_menu_header_item_layout.xml"
-    },
-    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\settings_item.xml",
@@ -64,12 +80,16 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_bar.xml"
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_tracks_chooser_dialog_row_layout.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\layout\\cast_tracks_chooser_dialog_row_layout.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login_activity.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\login_activity.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\statistic_fragment.xml",
@@ -92,12 +112,12 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\splash_activity.xml"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_big_media.xml"
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_chooser_list_item.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\layout\\mr_chooser_list_item.xml"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_navigation_item_separator.xml"
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_big_media.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
@@ -108,8 +128,16 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_chooser_dialog.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\layout\\mr_chooser_dialog.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
@@ -128,8 +156,16 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_mini_controller.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\layout\\cast_mini_controller.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_tracks_chooser_dialog_layout.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\layout\\cast_tracks_chooser_dialog_layout.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
@@ -144,6 +180,10 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\spinner_name_text.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_controller_material_dialog_b.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\layout\\mr_controller_material_dialog_b.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\select_dialog_multichoice_material.xml"
     },
@@ -156,12 +196,20 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_navigation_menu_item.xml"
     },
     {
-        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_controller_volume_item.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\layout\\mr_controller_volume_item.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_prediction.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.4.0\\res\\layout\\place_autocomplete_item_prediction.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
@@ -208,12 +256,32 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\statistic_item.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_fragment.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.4.0\\res\\layout\\place_autocomplete_fragment.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\layout\\design_navigation_menu.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_progress.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\8.4.0\\res\\layout\\place_autocomplete_progress.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\settings_fragment.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\settings_fragment.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_playback_control.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\layout\\mr_playback_control.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_window.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\layout\\dialog_window.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_volume_control.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\layout\\mr_volume_control.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
@@ -232,6 +300,10 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_media_route_chooser_dialog.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\layout\\mr_media_route_chooser_dialog.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
     },
@@ -242,6 +314,10 @@
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_expanded_controller_activity.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.8.0\\res\\layout\\cast_expanded_controller_activity.xml"
     },
     {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",

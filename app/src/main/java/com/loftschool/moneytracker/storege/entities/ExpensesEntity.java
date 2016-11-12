@@ -17,7 +17,7 @@ public class ExpensesEntity extends Model {
     public String name;
     @Column(name = "date")
     public String date;
-    @Column(name = "Category")
+    @Column(name = "category")
     public CategoryEntity category;
 
 
@@ -58,8 +58,23 @@ public class ExpensesEntity extends Model {
     }
 
     public static List<ExpensesEntity> selectAll(String query) {
-        return new Select().from(ExpensesEntity.class)
-                .where("name LIKE?", new String[] {'%' + query + '%'})
+        return new Select()
+                .from(ExpensesEntity.class)
+                .where("name LIKE?", new String[]{'%' + query + '%'})
                 .execute();
+    }
+
+    public static ExpensesEntity selectById(int query) {
+        return new Select()
+                .from(ExpensesEntity.class)
+                .where("id LIKE?", query)
+                .executeSingle();
+    }
+
+    public static ExpensesEntity selectByCategory(CategoryEntity category) {
+        return new Select()
+                .from(ExpensesEntity.class)
+                .where("category LIKE?", category)
+                .executeSingle();
     }
 }

@@ -7,6 +7,7 @@
 
 package com.loftschool.moneytracker.ui;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -19,12 +20,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground_;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.builder.PostActivityStarter;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
+@TargetApi(23)
 public final class AddExpenseActivity_
     extends AddExpenseActivity
     implements HasViews, OnViewChangedListener
@@ -42,6 +45,7 @@ public final class AddExpenseActivity_
 
     private void init_(Bundle savedInstanceState) {
         OnViewChangedNotifier.registerOnViewChangedListener(this);
+        this.checkStatusBackground = CheckStatusBackground_.getInstance_(this);
     }
 
     @Override

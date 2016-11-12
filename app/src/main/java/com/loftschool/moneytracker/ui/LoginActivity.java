@@ -1,7 +1,10 @@
 package com.loftschool.moneytracker.ui;
 
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.appcompat.BuildConfig;
@@ -11,10 +14,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.GoogleAuthException;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.auth.UserRecoverableAuthException;
+import com.google.android.gms.common.AccountPicker;
+import com.google.android.gms.common.SignInButton;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.rest.NetworkStatusChecker;
 import com.loftschool.moneytracker.rest.RestService;
+import com.loftschool.moneytracker.rest.models.CheckGoogleTokenModel;
+import com.loftschool.moneytracker.rest.models.GoogleLoginUserModel;
 import com.loftschool.moneytracker.rest.models.UserLoginModel;
 import com.loftschool.moneytracker.rest.models.UserRegistrationModel;
 import com.loftschool.moneytracker.utils.ConstantsManager;
@@ -32,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private final static String LOG_TAG = LoginActivity_.class.getSimpleName();
     private final static int MIN_LENGTH = 5;
+    private static final int REQUEST_CODE = 200;
+    RestService restService = new RestService();
 
     @ViewById(R.id.login_layout_root)
     RelativeLayout loginLayout;
@@ -49,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btnCanсel;
     @ViewById(R.id.auth_btn_new_registration)
     Button newRegistration;
+    @ViewById(R.id.sign_in_button)
+    SignInButton signInButton;
 
     @Click(R.id.login_btn_canсel)
     void onLoginCancelClick() {
@@ -61,8 +76,8 @@ public class LoginActivity extends AppCompatActivity {
         if (NetworkStatusChecker.isNetworkAvailable(this)) {
             String login = enterLogin.getText().toString();
             String password = enterPassword.getText().toString();
-            if (!TextUtils.isEmpty(login) && !TextUtils.isEmpty(password)) {
-                if (login.length() >= MIN_LENGTH && password.length() >= MIN_LENGTH) {
+            if (!TextUtils.isEmpty(login) & !TextUtils.isEmpty(password)) {
+                if (login.length() >= MIN_LENGTH & password.length() >= MIN_LENGTH) {
                     userLogin(login, password);
                 } else {
                     Snackbar.make(loginLayout,
@@ -89,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Background
     void userLogin(String login, String password) {
-        RestService restService = new RestService();
         try {
             UserLoginModel userLoginModel = restService.login(login, password);
             Log.d(LOG_TAG, "Status: " + userLoginModel.getStatus());
@@ -109,6 +123,52 @@ public class LoginActivity extends AppCompatActivity {
             if (BuildConfig.DEBUG) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Click(R.id.sign_in_button)
+    void loginGoogleWithPlus() {
+        if (NetworkStatusChecker.isNetworkAvailable(this)) {
+            Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{"com.google"},
+                    false, null, null, null, null);
+            startActivityForResult(intent, REQUEST_CODE);
+        } else {
+            Snackbar.make(loginLayout,
+                    getString(R.string.registration_internet_error),
+                    Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            logInWithGoogle(data);
+        }
+    }
+
+    @Background
+    public void logInWithGoogle(Intent data) {
+        String token = null;
+        if (data != null) {
+            final String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+            final String accountType = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
+            Account account = new Account(accountName, accountType);
+            try {
+                token = GoogleAuthUtil.getToken(this, account, ConstantsManager.SCOPES);
+
+            } catch (UserRecoverableAuthException userAuthEx) {
+                startActivityForResult(userAuthEx.getIntent(), REQUEST_CODE);
+            } catch (IOException ioEx) {
+                ioEx.printStackTrace();
+            } catch (GoogleAuthException fatalAuthEx) {
+                fatalAuthEx.printStackTrace();
+            }
+            if (token != null) {
+                MoneyTrackerApplication.saveGoogleAuthToken(token);
+                navigateToMainScreen();
+            }
+        } else if (data==null){
+            showGoogleError();
         }
     }
 
@@ -147,6 +207,13 @@ public class LoginActivity extends AppCompatActivity {
     void showUnknownError() {
         Snackbar.make(loginLayout,
                 getString(R.string.registration_server_other_error),
+                Snackbar.LENGTH_SHORT).show();
+    }
+
+    @UiThread
+    void showGoogleError() {
+        Snackbar.make(loginLayout,
+                getString(R.string.auth_server_google_error),
                 Snackbar.LENGTH_SHORT).show();
     }
 

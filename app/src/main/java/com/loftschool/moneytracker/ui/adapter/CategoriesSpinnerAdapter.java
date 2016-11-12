@@ -17,15 +17,14 @@ import java.util.List;
 
 public class CategoriesSpinnerAdapter extends ArrayAdapter<CategoryEntity> implements SpinnerAdapter {
 
-   private List<CategoryEntity> ListCategoryEntity;
-
+    private List<CategoryEntity> ListCategoryEntity;
 
     public CategoriesSpinnerAdapter(Context context, List<CategoryEntity> ListCategoryEntity) {
         super(context, 0, ListCategoryEntity);
         this.ListCategoryEntity = ListCategoryEntity;
     }
 
-    public int getCount(){
+    public int getCount() {
         return ListCategoryEntity.size();
     }
 
@@ -34,8 +33,10 @@ public class CategoriesSpinnerAdapter extends ArrayAdapter<CategoryEntity> imple
     }
 
     @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-                CategoryEntity categoryEntity = (CategoryEntity) getItem(position);
+    public View getView(int position,
+                        View convertView,
+                        ViewGroup parent) {
+        CategoryEntity categoryEntity = (CategoryEntity) getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_name_text, parent, false);
@@ -47,7 +48,9 @@ public class CategoriesSpinnerAdapter extends ArrayAdapter<CategoryEntity> imple
     }
 
     @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+    public View getDropDownView(int position,
+                                View convertView,
+                                ViewGroup parent) {
         CategoryEntity categoryEntity = getItem(position);
 
         if (convertView == null) {
@@ -59,5 +62,3 @@ public class CategoriesSpinnerAdapter extends ArrayAdapter<CategoryEntity> imple
         return convertView;
     }
 }
-
-

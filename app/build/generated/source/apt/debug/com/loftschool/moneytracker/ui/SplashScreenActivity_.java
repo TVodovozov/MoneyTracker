@@ -14,6 +14,8 @@ import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground;
+import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground_;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.builder.PostActivityStarter;
 import org.androidannotations.api.view.HasViews;
@@ -36,7 +38,19 @@ public final class SplashScreenActivity_
     }
 
     private void init_(Bundle savedInstanceState) {
+        SplashScreenActivity_.NonConfigurationInstancesHolder nonConfigurationInstance = ((SplashScreenActivity_.NonConfigurationInstancesHolder) super.getLastCustomNonConfigurationInstance());
+        if (nonConfigurationInstance!= null) {
+            taskBackground = nonConfigurationInstance.taskBackground;
+            ((CheckStatusBackground_) taskBackground).rebind(this);
+        }
+        if (this.taskBackground == null) {
+            this.taskBackground = CheckStatusBackground_.getInstance_(this);
+        }
+        if (this.taskBackground == null) {
+            this.taskBackground = CheckStatusBackground_.getInstance_(this);
+        }
         OnViewChangedNotifier.registerOnViewChangedListener(this);
+
     }
 
     @Override
@@ -67,6 +81,23 @@ public final class SplashScreenActivity_
 
     public static SplashScreenActivity_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
         return new SplashScreenActivity_.IntentBuilder_(supportFragment);
+    }
+
+    @Override
+    public Object getLastCustomNonConfigurationInstance() {
+        SplashScreenActivity_.NonConfigurationInstancesHolder nonConfigurationInstance = ((SplashScreenActivity_.NonConfigurationInstancesHolder) super.getLastCustomNonConfigurationInstance());
+        if (nonConfigurationInstance == null) {
+            return null;
+        }
+        return nonConfigurationInstance.superNonConfigurationInstance;
+    }
+
+    @Override
+    public SplashScreenActivity_.NonConfigurationInstancesHolder onRetainCustomNonConfigurationInstance() {
+        SplashScreenActivity_.NonConfigurationInstancesHolder nonConfigurationInstanceState_ = new SplashScreenActivity_.NonConfigurationInstancesHolder();
+        nonConfigurationInstanceState_.superNonConfigurationInstance = super.onRetainCustomNonConfigurationInstance();
+        nonConfigurationInstanceState_.taskBackground = taskBackground;
+        return nonConfigurationInstanceState_;
     }
 
     @Override
@@ -112,5 +143,10 @@ public final class SplashScreenActivity_
             }
             return new PostActivityStarter(context);
         }
+    }
+
+    private static class NonConfigurationInstancesHolder {
+        public CheckStatusBackground taskBackground;
+        public Object superNonConfigurationInstance;
     }
 }

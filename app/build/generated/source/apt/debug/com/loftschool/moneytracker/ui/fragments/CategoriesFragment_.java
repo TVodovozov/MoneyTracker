@@ -15,9 +15,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.backgroundTasks.CheckStatusBackground_;
 import org.androidannotations.api.BackgroundExecutor;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
@@ -67,6 +67,7 @@ public final class CategoriesFragment_
 
     private void init_(Bundle savedInstanceState) {
         OnViewChangedNotifier.registerOnViewChangedListener(this);
+        this.checkStatusBackground = CheckStatusBackground_.getInstance_(getActivity());
         setHasOptionsMenu(true);
     }
 
@@ -85,16 +86,6 @@ public final class CategoriesFragment_
         this.rootLayout = ((CoordinatorLayout) hasViews.findViewById(R.id.categories_fragment_root_layout));
         this.recyclerView = ((RecyclerView) hasViews.findViewById(R.id.list_of_categories));
         this.fab = ((FloatingActionButton) hasViews.findViewById(R.id.categories_fab));
-        if (this.fab!= null) {
-            this.fab.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    CategoriesFragment_.this.fabCategoriesOnClickListener();
-                }
-            }
-            );
-        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.loftschool.moneytracker.ui;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -25,15 +27,18 @@ import com.loftschool.moneytracker.ui.fragments.SettingsFragment_;
 import com.loftschool.moneytracker.ui.fragments.StatisticFragment_;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.InstanceState;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringRes;
 
-@EActivity(R.layout.activity_main)
+
+@EActivity
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
 
-    private static final String LOG_TAG = MainActivity_.class.getSimpleName();
+    //private static final String LOG_TAG = MainActivity_.class.getSimpleName();
+    private static final String LOG_TAG = "MainLogs";
     private FragmentManager fragmentManager;
     private CategoryEntity categoryEntity;
 
@@ -53,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     String settingsTitle;
     @InstanceState
     String toolbarTitle;
+    @Bean
+    LogoutUser quitUser;
 
     @AfterViews
     void setupViews() {
@@ -60,32 +67,15 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         setDrawerLayout();
         fragmentManager = getSupportFragmentManager();
         fragmentManager.addOnBackStackChangedListener(this);
-        replaceFragment(new ExpensesFragment_());
-
-        if (CategoryEntity.selectAll().size() == 0) {
-            generateCategory();
-        }
     }
 
-    public void generateCategory() {
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Развлечения");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Продукты");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Кафе");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Образование");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Лекарства");
-        categoryEntity.save();
-        categoryEntity = new CategoryEntity();
-        categoryEntity.setName("Иное");
-        categoryEntity.save();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            replaceFragment(new ExpensesFragment_());
+        }
     }
 
     public void onBackPressed() {
@@ -131,15 +121,20 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 R.string.navigation_drawer_close);
         toggle.syncState();
         drawer.addDrawerListener(toggle);
+        View headerView = navigationView.getHeaderView(0);
         if (toolbarTitle != null)
             setTitle(toolbarTitle);
 
-        View headerView = navigationView.getHeaderView(0);
+        TextView email = (TextView) headerView.findViewById(R.id.text_view_email);
+        email.setText(MoneyTrackerApplication.getEmail());
+        TextView name = (TextView) headerView.findViewById(R.id.text_view_name);
+        name.setText(MoneyTrackerApplication.getName());
         ImageView avatar = (ImageView) headerView.findViewById(R.id.imageView);
+        String url = MoneyTrackerApplication.getPicture();
 
         Glide
                 .with(this)
-                .load(R.mipmap.logo)
+                .load(url)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(avatar);
@@ -175,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                         replaceFragment(new SettingsFragment_());
                         break;
                     case R.id.menu_quit:
+                        quitUser.userLogout();
                         break;
                 }
                 return true;
@@ -182,7 +178,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         });
         return true;
     }
-
 
     private void replaceFragment(Fragment fragment) {
         String backStackName = fragment.getClass().getName();
@@ -195,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             transaction.addToBackStack(backStackName);
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             transaction.commit();
-
         }
     }
 
@@ -219,12 +213,5 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             toolbarTitle = statisticsTitle;
             navigationView.setCheckedItem(R.id.menu_settings);
         }
-
     }
-
 }
-
-
-
-
-

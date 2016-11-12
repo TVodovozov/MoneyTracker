@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,6 +23,7 @@ import android.widget.SearchView;
 import com.loftschool.moneytracker.R;
 import com.loftschool.moneytracker.storege.entities.ExpensesEntity;
 import com.loftschool.moneytracker.ui.AddExpenseActivity_;
+import com.loftschool.moneytracker.ui.adapter.ClickListener;
 import com.loftschool.moneytracker.ui.adapter.ExpensesAdapter;
 
 import org.androidannotations.annotations.AfterViews;
@@ -34,13 +37,17 @@ import org.androidannotations.api.BackgroundExecutor;
 
 import java.util.List;
 
-@EFragment (R.layout.expenses_fragment)
-@OptionsMenu (R.menu.menu_search)
+@EFragment(R.layout.expenses_fragment)
+@OptionsMenu(R.menu.menu_search)
 public class ExpensesFragment extends Fragment {
 
     private static final int LOADER_ID = 0;
     private static final String LOG_TAG = ExpensesFragment_.class.getSimpleName();
-    final String SEARCH_QUERY_ID = "search_query_id";
+    private static final String SEARCH_QUERY_ID = "search_query_id";
+    private ExpensesAdapter expensesAdapter;
+    private ActionModeCallback actionModeCallback = new ActionModeCallback();
+    private ActionMode actionMode;
+
     SearchView searchView;
 
     @ViewById(R.id.expanse_fragment_root_layout)
@@ -76,6 +83,7 @@ public class ExpensesFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                loadExpenses(query);
                 return false;
             }
 
@@ -94,12 +102,13 @@ public class ExpensesFragment extends Fragment {
         getActivity().setTitle(R.string.menu_buy);
         loadExpenses("");
     }
-    @Background (delay = 600, id = SEARCH_QUERY_ID)
-    public void queryExpenses (String query){
+
+    @Background(delay = 600, id = SEARCH_QUERY_ID)
+    public void queryExpenses(String query) {
         loadExpenses(query);
     }
 
-    private void loadExpenses(final String query){
+    private void loadExpenses(final String query) {
         getLoaderManager().restartLoader(LOADER_ID, null, new LoaderManager.LoaderCallbacks<List<ExpensesEntity>>() {
             @Override
             public Loader<List<ExpensesEntity>> onCreateLoader(int id, Bundle args) {
@@ -115,7 +124,25 @@ public class ExpensesFragment extends Fragment {
 
             @Override
             public void onLoadFinished(Loader<List<ExpensesEntity>> loader, List<ExpensesEntity> data) {
-                recyclerView.setAdapter(new ExpensesAdapter(data));
+                expensesAdapter = new ExpensesAdapter(data, new ClickListener() {
+                    @Override
+                    public void onItemClicked(int position) {
+                        if (actionMode != null) {
+                            toggleSelection(position);
+                        }
+                    }
+
+                    @Override
+                    public boolean onItemLongClicked(int position) {
+                        if (actionMode == null) {
+                            AppCompatActivity activity = (AppCompatActivity) getActivity();
+                            actionMode = activity.startSupportActionMode(actionModeCallback);
+                        }
+                        toggleSelection(position);
+                        return true;
+                    }
+                });
+                recyclerView.setAdapter(expensesAdapter);
             }
 
             @Override
@@ -123,5 +150,48 @@ public class ExpensesFragment extends Fragment {
 
             }
         });
+    }
+
+    private void toggleSelection(int position) {
+        expensesAdapter.toggleSelection(position);
+        int count = expensesAdapter.getSelectedItemCount();
+        if (count == 0) {
+            actionMode.finish();
+        } else {
+            actionMode.setTitle(String.valueOf(count));
+            actionMode.invalidate();
+        }
+    }
+
+    private class ActionModeCallback implements ActionMode.Callback {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            mode.getMenuInflater().inflate(R.menu.contextual_action_bar, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_remove:
+                    expensesAdapter.removeItems(expensesAdapter.getSelectedItems());
+                    mode.finish();
+                    return true;
+                default:
+                    return false;
+            }
+
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            expensesAdapter.clearSelection();
+            actionMode = null;
+        }
     }
 }
