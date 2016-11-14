@@ -252,5 +252,3 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
         }
     }
 }
-
-

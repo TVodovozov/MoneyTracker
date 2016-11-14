@@ -11,14 +11,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.github.mikephil.charting.charts.PieChart;
 import com.loftschool.moneytracker.R;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class StatisticFragment_
     extends com.loftschool.moneytracker.ui.fragments.StatisticFragment
-    implements HasViews
+    implements HasViews, OnViewChangedListener
 {
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
     private View contentView_;
@@ -52,9 +54,11 @@ public final class StatisticFragment_
     public void onDestroyView() {
         super.onDestroyView();
         contentView_ = null;
+        pieChart = null;
     }
 
     private void init_(Bundle savedInstanceState) {
+        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -65,6 +69,12 @@ public final class StatisticFragment_
 
     public static StatisticFragment_.FragmentBuilder_ builder() {
         return new StatisticFragment_.FragmentBuilder_();
+    }
+
+    @Override
+    public void onViewChanged(HasViews hasViews) {
+        this.pieChart = ((PieChart) hasViews.findViewById(R.id.statistic_chart));
+        loadChart();
     }
 
     public static class FragmentBuilder_

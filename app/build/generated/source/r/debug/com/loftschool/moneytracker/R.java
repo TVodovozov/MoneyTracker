@@ -3124,7 +3124,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0e0079;
         public static final int action_mode_bar_stub=0x7f0e0078;
         public static final int action_mode_close_button=0x7f0e005d;
-        public static final int action_settings=0x7f0e00ec;
+        public static final int action_settings=0x7f0e00eb;
         public static final int activity_chooser_view_content=0x7f0e005e;
         public static final int add=0x7f0e001a;
         public static final int adjust_height=0x7f0e0043;
@@ -3234,7 +3234,6 @@ containing a value of this type.
         public static final int list_of_categories=0x7f0e0099;
         public static final int list_of_expenses=0x7f0e00b7;
         public static final int list_of_settings=0x7f0e00dc;
-        public static final int list_of_statistic=0x7f0e00e2;
         public static final int login_btn_canсel=0x7f0e00c1;
         public static final int login_btn_registration=0x7f0e00c0;
         public static final int login_enter_login=0x7f0e00bc;
@@ -3245,12 +3244,12 @@ containing a value of this type.
         public static final int main_container=0x7f0e008f;
         public static final int match_global_nicknames=0x7f0e0051;
         public static final int media_actions=0x7f0e00cb;
-        public static final int menu_buy=0x7f0e00e6;
-        public static final int menu_category=0x7f0e00e7;
-        public static final int menu_quit=0x7f0e00ea;
-        public static final int menu_remove=0x7f0e00eb;
-        public static final int menu_settings=0x7f0e00e9;
-        public static final int menu_statistics=0x7f0e00e8;
+        public static final int menu_buy=0x7f0e00e5;
+        public static final int menu_category=0x7f0e00e6;
+        public static final int menu_quit=0x7f0e00e9;
+        public static final int menu_remove=0x7f0e00ea;
+        public static final int menu_settings=0x7f0e00e8;
+        public static final int menu_statistics=0x7f0e00e7;
         public static final int middle=0x7f0e0042;
         public static final int mini=0x7f0e0033;
         public static final int multiply=0x7f0e001b;
@@ -3280,7 +3279,7 @@ containing a value of this type.
         public static final int scrollIndicatorUp=0x7f0e006c;
         public static final int scrollView=0x7f0e006d;
         public static final int scrollable=0x7f0e005a;
-        public static final int search_action=0x7f0e00ed;
+        public static final int search_action=0x7f0e00ec;
         public static final int search_badge=0x7f0e0080;
         public static final int search_bar=0x7f0e007f;
         public static final int search_button=0x7f0e0081;
@@ -3313,10 +3312,10 @@ containing a value of this type.
         public static final int src_over=0x7f0e001f;
         public static final int standard=0x7f0e0055;
         public static final int start=0x7f0e002a;
-        public static final int statistic_card_root=0x7f0e00e3;
-        public static final int statistic_fragment_root_layout=0x7f0e00e1;
-        public static final int statistic_item_layout=0x7f0e00e4;
-        public static final int statistic_item_statistic_name=0x7f0e00e5;
+        public static final int statistic_card_root=0x7f0e00e2;
+        public static final int statistic_chart=0x7f0e00e1;
+        public static final int statistic_item_layout=0x7f0e00e3;
+        public static final int statistic_item_statistic_name=0x7f0e00e4;
         public static final int status_bar_latest_event_content=0x7f0e00ca;
         public static final int submenuarrow=0x7f0e0076;
         public static final int submit_area=0x7f0e0087;
@@ -3536,8 +3535,9 @@ containing a value of this type.
         public static final int registration_title=0x7f070062;
         public static final int search_menu_title=0x7f070024;
         public static final int search_title=0x7f070063;
+        public static final int statistic_text=0x7f070064;
         public static final int status_bar_notification_info_overflow=0x7f070025;
-        public static final int sync_account_type=0x7f070064;
+        public static final int sync_account_type=0x7f070065;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f090091;

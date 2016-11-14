@@ -28,17 +28,16 @@ import java.util.List;
 public class CheckStatusBackground {
 
     private final static String LOG_TAG = CheckStatusBackground.class.getSimpleName();
-    private String token = MoneyTrackerApplication.getGoogleAuthToken();
-    private String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
     public RestService restService = new RestService();
 
     @Background
     public void checkGoogleTokenStatus() {
+        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         try {
-            CheckGoogleTokenModel checkGoogleTokenModel = restService.checkGoogleToken(token);
+            CheckGoogleTokenModel checkGoogleTokenModel = restService.checkGoogleToken(googleToken);
 
             if (checkGoogleTokenModel.getStatus().equals(ConstantsManager.STATUS_SUCCEED)) {
-                GoogleLoginUserModel googleLoginUserModel = restService.googleLoginUser(token);
+                GoogleLoginUserModel googleLoginUserModel = restService.googleLoginUser(googleToken);
                 MoneyTrackerApplication.saveEmail(googleLoginUserModel.getEmail());
                 MoneyTrackerApplication.saveName(googleLoginUserModel.getName());
                 MoneyTrackerApplication.savePicture(googleLoginUserModel.getPicture());
@@ -51,11 +50,15 @@ public class CheckStatusBackground {
 
     @Background
     public void checkUserCategories() {
+        String token = MoneyTrackerApplication.getAuthToken();
+        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         try {
             UserSyncCategoriesModel categoriesSyncModel = restService.postCategories(token, googleToken);
             List<CategoryModel> categoryModels = categoriesSyncModel.getData();
             if (CategoryEntity.selectAll("").size() == 0) {
+                int i = 0;
                 for (CategoryModel category  : categoryModels) {
+                    i++;
                     CategoryEntity categoryEntity = new CategoryEntity();
                     categoryEntity.setName(category.getTitle());
                     categoryEntity.save();
@@ -69,20 +72,20 @@ public class CheckStatusBackground {
 
     @Background
     public void checkUserExpenses() {
-        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         String token = MoneyTrackerApplication.getAuthToken();
+        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         try {
             UserSyncExpensesModel expensesModel = restService.postExpenses(token, googleToken);
             List<ExpenseModel> expenseModels = expensesModel.getData();
             if (ExpensesEntity.selectAll("").size() == 0) {
-                for (ExpenseModel expenses : expenseModels) {
+                for (ExpenseModel category : expenseModels) {
                     ExpensesEntity expenseEntity = new ExpensesEntity();
-                    expenseEntity.setName(expenses.getComment());
-                    expenseEntity.setPrice(expenses.getSum());
-                    long query = expenses.getCategoryId();
+                    expenseEntity.setName(category.getComment());
+                    expenseEntity.setPrice(category.getSum());
+                    long query = category.getCategoryId();
                     CategoryEntity categoryEntity = CategoryEntity.selectById(query);
                     expenseEntity.setCategory(categoryEntity);
-                    expenseEntity.setDate(expenses.getDate());
+                    expenseEntity.setDate(category.getDate());
                     expenseEntity.save();
                 }
             }
@@ -93,6 +96,8 @@ public class CheckStatusBackground {
 
     @Background
     public void addCategory(String category) {
+        String token = MoneyTrackerApplication.getAuthToken();
+        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         try {
             AddCategoryModel addCategoryModel =
                     restService.addCategory(category, token, googleToken);
@@ -104,8 +109,8 @@ public class CheckStatusBackground {
 
     @Background
     public void addExpenses(String sum, String comment, int categoryId, String date) {
-        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         String token = MoneyTrackerApplication.getAuthToken();
+        String googleToken = MoneyTrackerApplication.getGoogleAuthToken();
         try {
             AddExpensesModel addExpenseModel =
                     restService.addExpenses(sum, comment, categoryId, date, token, googleToken);
