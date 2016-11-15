@@ -118,7 +118,7 @@ public final class R {
 		public static final int radio = 0x7f0e0075;
 		public static final int rfc822 = 0x7f0e004c;
 		public static final int standard = 0x7f0e0055;
-		public static final int text = 0x7f0e00cf;
+		public static final int text = 0x7f0e00d1;
 		public static final int text1 = 0x7f0e003b;
 		public static final int text2 = 0x7f0e003c;
 		public static final int thing_proto = 0x7f0e003d;

@@ -10,6 +10,7 @@ package com.loftschool.moneytracker.ui.fragments;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -63,6 +64,7 @@ public final class ExpensesFragment_
         rootLayout = null;
         recyclerView = null;
         fab = null;
+        refreshLayout = null;
     }
 
     private void init_(Bundle savedInstanceState) {
@@ -83,8 +85,9 @@ public final class ExpensesFragment_
     @Override
     public void onViewChanged(HasViews hasViews) {
         this.rootLayout = ((CoordinatorLayout) hasViews.findViewById(R.id.expanse_fragment_root_layout));
-        this.recyclerView = ((RecyclerView) hasViews.findViewById(R.id.list_of_expanses));
+        this.recyclerView = ((RecyclerView) hasViews.findViewById(R.id.list_of_expenses));
         this.fab = ((FloatingActionButton) hasViews.findViewById(R.id.expenses_fab));
+        this.refreshLayout = ((SwipeRefreshLayout) hasViews.findViewById(R.id.expense_refresh_layout));
         if (this.fab!= null) {
             this.fab.setOnClickListener(new OnClickListener() {
 

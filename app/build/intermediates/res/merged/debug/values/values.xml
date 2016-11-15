@@ -717,6 +717,7 @@
     <string name="expenses_fragment">Hello Fragments</string>
     <string name="expenses_select_categories">Выберите категорию</string>
     <string name="expenses_toast_add">Покупка добавлена</string>
+    <string name="expenses_toast_error">Сначала введите категорию</string>
     <string name="expenses_warning">Заполните все поля</string>
     <string name="menu_buy">Расходы</string>
     <string name="menu_category">Категории</string>

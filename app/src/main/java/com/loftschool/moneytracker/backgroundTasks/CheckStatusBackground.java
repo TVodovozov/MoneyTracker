@@ -55,9 +55,9 @@ public class CheckStatusBackground {
             UserSyncCategoriesModel categoriesSyncModel = restService.postCategories(token, googleToken);
             List<CategoryModel> categoryModels = categoriesSyncModel.getData();
             if (CategoryEntity.selectAll("").size() == 0) {
-                for (CategoryModel quote : categoryModels) {
+                for (CategoryModel category  : categoryModels) {
                     CategoryEntity categoryEntity = new CategoryEntity();
-                    categoryEntity.setName(quote.getTitle());
+                    categoryEntity.setName(category.getTitle());
                     categoryEntity.save();
                 }
             }
@@ -75,14 +75,14 @@ public class CheckStatusBackground {
             UserSyncExpensesModel expensesModel = restService.postExpenses(token, googleToken);
             List<ExpenseModel> expenseModels = expensesModel.getData();
             if (ExpensesEntity.selectAll("").size() == 0) {
-                for (ExpenseModel quote : expenseModels) {
+                for (ExpenseModel expenses : expenseModels) {
                     ExpensesEntity expenseEntity = new ExpensesEntity();
-                    expenseEntity.setName(quote.getComment());
-                    expenseEntity.setPrice(quote.getSum());
-                    int query = (int) (long) quote.getCategoryId();
+                    expenseEntity.setName(expenses.getComment());
+                    expenseEntity.setPrice(expenses.getSum());
+                    long query = expenses.getCategoryId();
                     CategoryEntity categoryEntity = CategoryEntity.selectById(query);
                     expenseEntity.setCategory(categoryEntity);
-                    expenseEntity.setDate(quote.getDate());
+                    expenseEntity.setDate(expenses.getDate());
                     expenseEntity.save();
                 }
             }

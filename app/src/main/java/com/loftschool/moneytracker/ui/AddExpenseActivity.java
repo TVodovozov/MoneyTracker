@@ -95,6 +95,12 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.enter_fade_in, R.anim.exit_push_out);
+    }
+
     public void showDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String toDayDate = sdf.format(new Date());
@@ -117,10 +123,7 @@ public class AddExpenseActivity extends AppCompatActivity implements AdapterView
         expensesEntity.setPrice(prise);
         expensesEntity.setDate(date);
         CategoryEntity category = (CategoryEntity) spinnerCategories.getSelectedItem();
-        if (category != null) {
-            categoryId = (int) (long) category.getId();
-            expensesEntity.setCategory(category);
-        }
+        expensesEntity.setCategory(category);
         expensesEntity.save();
     }
 }
