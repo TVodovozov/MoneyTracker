@@ -64,13 +64,36 @@
 
     <string name="statistic_text">Статистика по категориям</string>
 
+    <string name="menu_title_text">Нажмите для оповещения</string>
 
-    <string-array name="categories">
-        <item>Выберите категорию</item>
-        <item>Развлечения</item>
-        <item>Продукты</item>
-        <item>Кафе</item>
-        <item>Образование</item>
-        <item>Лекарства</item>
-    </string-array>
+    <!-- common -->
+    <string name="pref_enable_notifications_default" translatable="false">true</string>
+    <string name="pref_enable_notifications_true">Включено</string>
+    <string name="pref_enable_notifications_false">Выключено</string>
+
+    <!-- Global notifications -->
+    <string name="pref_enable_notifications_key" translatable="false">enable_notifications</string>
+    <string name="pref_enable_notifications_label">Обновление оповещения</string>
+
+    <!-- Vibrate option -->
+    <string name="pref_enable_vibrate_notifications_key" translatable="false">enable_vibrate_notifications</string>
+    <string name="pref_enable_vibrate_notifications_label">Вибрация</string>
+
+    <string name="pref_notification_section">Настройки оповещения</string>
+
+    <!-- Sound option -->
+    <string name="pref_enable_sound_notifications_key" translatable="false">enable_sound_notifications</string>
+    <string name="pref_enable_sound_notifications_label">Звук</string>
+
+    <!-- LED option -->
+    <string name="pref_enable_led_notifications_key" translatable="false">enable_led_notifications</string>
+    <string name="pref_enable_led_notifications_label">Световой индикатор</string>
+
+    <!-- Foreground option -->
+    <string name="pref_enable_foreground_notifications_key" translatable="false">enable_foreground_notifications</string>
+    <string name="pref_enable_foreground_notifications_label">Сообщение оповещения на переднем плане</string>
+
+    <!-- String for notification bar-->
+    <string name="notification_message">Это оповещающее сообщение!</string>
+
 </resources>

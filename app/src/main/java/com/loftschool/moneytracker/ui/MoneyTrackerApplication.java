@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.SharedPreferences;
 
 import com.activeandroid.ActiveAndroid;
+import com.facebook.stetho.Stetho;
 import com.loftschool.moneytracker.utils.ConstantsManager;
 
 
@@ -16,6 +17,7 @@ public class MoneyTrackerApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ActiveAndroid.initialize(this);
+        Stetho.initializeWithDefaults(this);
 
         sharedPreferences = getSharedPreferences(ConstantsManager.SHARE_PREF_FILE_NAME, MODE_PRIVATE);
     }

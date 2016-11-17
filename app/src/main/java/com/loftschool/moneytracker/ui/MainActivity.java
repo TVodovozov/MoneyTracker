@@ -1,6 +1,10 @@
 package com.loftschool.moneytracker.ui;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +24,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.loftschool.moneytracker.R;
+import com.loftschool.moneytracker.notification.ServiceSample;
 import com.loftschool.moneytracker.storege.entities.CategoryEntity;
 import com.loftschool.moneytracker.ui.fragments.CategoriesFragment_;
 import com.loftschool.moneytracker.ui.fragments.ExpensesFragment_;
@@ -41,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
     private static final String LOG_TAG = "MainLogs";
     private FragmentManager fragmentManager;
     private CategoryEntity categoryEntity;
+    private ServiceSample mServiceSample;
+    private boolean isBound = false;
 
     @ViewById(R.id.toolbar_layout)
     Toolbar toolbar;
@@ -86,22 +93,6 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     public void onBackStackChanged() {
@@ -213,5 +204,54 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
             toolbarTitle = statisticsTitle;
             navigationView.setCheckedItem(R.id.menu_settings);
         }
+    }
+
+    private ServiceConnection mServiceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            if (service instanceof ServiceSample.SampleBinder) {
+                mServiceSample = ((ServiceSample.SampleBinder) service).getService();
+            }
+            isBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mServiceSample = null;
+            isBound = false;
+        }
+    };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_notify) {
+            if (mServiceSample != null) {
+                mServiceSample.sendNotification();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent serviceIntent = new Intent(this, ServiceSample.class);
+        bindService(serviceIntent, mServiceConnection, BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onStop() {
+        if (isBound) {
+            unbindService(mServiceConnection);
+        }
+        super.onStop();
     }
 }

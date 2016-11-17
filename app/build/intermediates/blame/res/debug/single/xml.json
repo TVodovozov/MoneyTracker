@@ -4,6 +4,10 @@
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\xml\\syncadapter.xml"
     },
     {
+        "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\xml\\notifications_preferences.xml",
+        "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\xml\\notifications_preferences.xml"
+    },
+    {
         "merged": "D:\\TestProjects\\MoneyTracker\\app\\build\\intermediates\\res\\merged\\debug\\xml\\authenticator.xml",
         "source": "D:\\TestProjects\\MoneyTracker\\app\\src\\main\\res\\xml\\authenticator.xml"
     }
