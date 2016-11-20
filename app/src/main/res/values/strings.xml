@@ -62,6 +62,8 @@
     <string name="dialog_window_btn_cancel">Отмена</string>
     <string name="add_new_category">Введите название категории</string>
 
+    <string name="statistic_text">Статистика по категориям</string>
+
 
     <string-array name="categories">
         <item>Выберите категорию</item>
