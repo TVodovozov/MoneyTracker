@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.preference.PreferenceCategory android:title="@string/pref_notification_section">
+
+        <!-- GLOBAL -->
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="@string/pref_enable_notifications_default"
+            android:key="@string/pref_enable_notifications_key"
+            android:summaryOff="@string/pref_enable_notifications_false"
+            android:summaryOn="@string/pref_enable_notifications_true"
+            android:title="@string/pref_enable_notifications_label" />
+
+        <!-- Vibrate -->
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="@string/pref_enable_notifications_default"
+            android:key="@string/pref_enable_vibrate_notifications_key"
+            android:summaryOff="@string/pref_enable_notifications_false"
+            android:summaryOn="@string/pref_enable_notifications_true"
+            android:title="@string/pref_enable_vibrate_notifications_label" />
+
+        <!-- Sound -->
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="@string/pref_enable_notifications_default"
+            android:key="@string/pref_enable_sound_notifications_key"
+            android:summaryOff="@string/pref_enable_notifications_false"
+            android:summaryOn="@string/pref_enable_notifications_true"
+            android:title="@string/pref_enable_sound_notifications_label" />
+
+        <!-- LED -->
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="@string/pref_enable_notifications_default"
+            android:key="@string/pref_enable_led_notifications_key"
+            android:summaryOff="@string/pref_enable_notifications_false"
+            android:summaryOn="@string/pref_enable_notifications_true"
+            android:title="@string/pref_enable_led_notifications_label" />
+
+        <!-- FOREGROUND -->
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="@string/pref_enable_notifications_default"
+            android:key="@string/pref_enable_foreground_notifications_key"
+            android:summaryOff="@string/pref_enable_notifications_false"
+            android:summaryOn="@string/pref_enable_notifications_true"
+            android:title="@string/pref_enable_foreground_notifications_label" />
+
+    </android.support.v7.preference.PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

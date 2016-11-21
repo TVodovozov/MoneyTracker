@@ -60,12 +60,12 @@ public class ExpensesFragment extends Fragment {
     @ViewById(R.id.expenses_fab)
     FloatingActionButton fab;
     @ViewById(R.id.expense_refresh_layout)
-    SwipeRefreshLayout refreshLayout;
+    SwipeRefreshLayout swipeRefresh;
     @OptionsMenuItem(R.id.search_action)
     MenuItem menuItem;
 
     @AfterViews
-    void LinearLayoutManager() {
+    void loadLayoutManager() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
@@ -73,8 +73,8 @@ public class ExpensesFragment extends Fragment {
         itemAnimator.setRemoveDuration(700);
         recyclerView.setItemAnimator(itemAnimator);
 
-        refreshLayout.setColorSchemeColors(new int[]{getResources().getColor(R.color.colorAccent)});
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        swipeRefresh.setColorSchemeColors(new int[]{getResources().getColor(R.color.colorAccent)});
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 loadExpenses("");

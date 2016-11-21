@@ -8,19 +8,17 @@
 package com.loftschool.moneytracker.ui.fragments;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.loftschool.moneytracker.R;
 import org.androidannotations.api.builder.FragmentBuilder;
 import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class SettingsFragment_
     extends com.loftschool.moneytracker.ui.fragments.SettingsFragment
-    implements HasViews, OnViewChangedListener
+    implements HasViews
 {
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
     private View contentView_;
@@ -54,11 +52,9 @@ public final class SettingsFragment_
     public void onDestroyView() {
         super.onDestroyView();
         contentView_ = null;
-        recyclerView = null;
     }
 
     private void init_(Bundle savedInstanceState) {
-        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -69,11 +65,6 @@ public final class SettingsFragment_
 
     public static SettingsFragment_.FragmentBuilder_ builder() {
         return new SettingsFragment_.FragmentBuilder_();
-    }
-
-    @Override
-    public void onViewChanged(HasViews hasViews) {
-        this.recyclerView = ((RecyclerView) hasViews.findViewById(R.id.list_of_settings));
     }
 
     public static class FragmentBuilder_

@@ -78,7 +78,7 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
     MenuItem menuItem;
 
     @AfterViews
-    void LinearLayoutManager() {
+    void loadLayoutManager() {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         fab.setOnClickListener(this);
